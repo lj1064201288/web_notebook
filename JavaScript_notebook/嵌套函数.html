@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>嵌套函数</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function func(a, b){
+			function func2(){
+				var str = 100;
+				alert('总和为:' + (a + b + str));
+			}
+			return func2();
+		}
+		func(10, 20);
+	</script>
+</body>
+</html>

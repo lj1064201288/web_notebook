@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>删除与替换操作</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function toDelete(){
+			var deleteNode = document.getElementById('todelete');
+			
+			if (deleteNode.hasChildNodes()){
+				deleteNode.removeChild(deleteNode.lastChild);
+			}
+		}
+		
+		function toReplace(){
+			var replaceNode = document.getElementById('toreplace')
+			
+			if (replaceNode){
+				var newNode = document.createElement('strong');
+				var textNode = document.createTextNode('strong element');
+				
+				newNode.appendChild(textNode)
+				
+				replaceNode.parentNode.replaceChild(newNode, replaceNode)
+				
+			}
+		}
+		
+	</script>
+	
+	<div id="todelete" align="center">
+		<p>This is a node</p>
+		<p>This <em>another node </em> to delete</p>
+		<p>This is yet another node</p>
+	</div>
+	
+	<p align="center">
+		This node has an <em id="toreplace">em element</em> in it.
+	</p>
+	<hr />
+	
+	<form action="#">
+		<input type="button" value='delete' onclick="toDelete()" />
+		<input type="button" value='replace' onclick="toReplace()" />
+	</form>
+	
+</body>
+</html>

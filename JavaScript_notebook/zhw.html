@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>获取节点</title>
+	<script type="text/javascript">
+		window.onload = function(){
+			var zhwhtml = document.documentElement;
+			alert(zhwhtml);
+			
+			var zhwbody = document.body;
+			alert(zhwbody.nodeName)
+			
+			var fh = zhwhtml.firstChild;
+			alert('html的第一个元素: ' + fh);
+			
+			var fb = zhwbody.firstChild;
+			alert('body的第一个元素: ' + fb)
+			
+			var fl = zhwhtml.lastChild;
+			alert('html的最后一个元素：' + fl)
+			
+			var bl = zhwbody.lastChild;
+			alert('body的最后一个元素：'  + bl );
+			
+			var hn = fh.nodeName;
+			alert('html的第一个元素的名称为: ' + hn);
+			
+			var br = fb.nodeName;
+			alert("body的第一个元素的名称为" + br);
+			
+			var ht = document.getElementById('zhw')
+			alert(ht.nodeName)
+			
+			var hl = ht.childNodes;
+			alert(hl.length)
+			
+			var txt = ht.firstChild;
+			alert(txt.nodeName);
+			alert(txt.nodeValue);
+			alert(txt.nodeType);
+			alert(ht.innerHTML);
+			alert(ht.innerHTML + 'text');
+			
+		}
+	
+	</script>
+</head>
+<body>
+	<h1 id="zhw">我是一个标题</h1>
+	
+</body>
+</html>

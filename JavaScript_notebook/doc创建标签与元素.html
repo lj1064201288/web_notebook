@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>doc创建标签与元素</title>
+	<script type="text/javascript">
+		function nodeStatus(node){
+			
+			var temp = '';
+			if (node.nodeName!=null){
+				temp += "nodeName:" + node.nodeName + ".\n"
+			}
+			else{
+				temp += 'nodeName: null!\n'
+			}
+			if (node.nodeValue!=null){
+				temp += 'nodeValue:' + node.nodeValue + ".\n"
+			}
+			else{
+				temp += 'nodeValue: null!\n'
+			}
+			return temp;
+		}
+		
+		function MyTest(){
+			var nodePargraph = document.createElement('p')
+			var nodeTextNode = document.createTextNode(document.Myform.MyField.value);
+			
+			var message = nodeStatus(nodePargraph);
+				
+			message += nodeStatus(nodeTextNode);
+			
+			alert(message)
+			return;
+		}
+	</script>
+</head>
+<body>
+	<form action="." name="Myform">
+		<input type="text" name="MyField" value="Test">
+		<input type="button" value="test" onclick="MyTest()">
+	</form>
+	
+	
+</body>
+</html>

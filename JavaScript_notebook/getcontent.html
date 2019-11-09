@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>获取表单里面的内容</title>
+	<script type="text/javascript">
+		function acctatol(){
+			var num = document.getElementsByTagName('input')
+			alert("input的节点数有: " + num.length)
+		}
+		
+		function submitcontent(){
+			msg = ''
+			var user = document.getElementById('user')
+			var password = document.getElementById('password')
+			
+			msg += '您的用户名为: ' + user.value + "\n";
+			msg += '您的用户密码为: ' + password.value + '\n';
+			alert(msg)
+		}
+	
+	</script>
+</head>
+<body>
+	<table cellpadding="0" cellspacing="0" border="1">
+		<tr>
+			<td>用户名:&nbsp;</td>
+			<td>
+				&nbsp;<input type="text" name="user" id="user" value="">
+			</td>
+		</tr>
+		<tr>
+			<td>密码:&nbsp;</td>
+			<td>
+				&nbsp;<input type="password" name="password" id="password" value="">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="submit" value="提交" id="submit" name="submit">
+			</td>
+		</tr>
+	</table>
+	
+<a href="javascript:void(0)" onclick="acctatol()">查看节点的数量</a>
+<a href="javascript:void(0)" onclick="submitcontent()">查看点击后的内容</a>
+</body>
+</html>

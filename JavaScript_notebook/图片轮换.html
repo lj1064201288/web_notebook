@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片轮换</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+		function image1(){
+			document.all.mypic.src="C:\\web\\web\\JavaScript_notebook\\images\\javascript.jpg"
+		}
+		
+		function image2(){
+			document.all.mypic.src="C:\\web\\web\\JavaScript_notebook\\images\\logo.png"
+		}
+		
+	</script>
+	<center>
+		<p>鼠标事件触发图片轮换</p>
+		<img src="C:\web\web\JavaScript_notebook\images\javascript.jpg" alt="图片加载失败" title="图片" width="350" height="250" name="mypic" id="mypic">
+	
+	</center>
+	
+	<script type="text/javascript">
+		document.all.mypic.onmouseover = image1;
+		document.all.mypic.onmouseout = image2;
+			
+	</script>
+	
+</body>
+</html>

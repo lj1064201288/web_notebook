@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>动态改变背景颜色</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function change(color){
+			document.body.style.backgroundColor = color;
+		}
+	</script>
+	
+	<form action="" name="myform" id="myform">
+		<input type="button" value='红色' name="red" onclick="change(this.name)">
+		<input type="button" value="绿色" name='green' onclick="change(this.name)">
+		<input type="button" value="蓝色" name='blue' onclick="change(this.name)">
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>判断是否为闰年</title>
+</head>
+<body>
+	<script>
+		var func1 = function(year){
+			if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+				alert(year + "是闰年.")
+			}
+			else{
+				alert(year + "是平年.")
+			}
+		}
+	</script>
+	
+	<button onclick="func1(prompt('请输入你要测试的年份:'))">func1</button>
+</body>
+</html>

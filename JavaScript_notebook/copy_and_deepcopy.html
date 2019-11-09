@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>深拷贝与浅拷贝</title>
+</head>
+<body>
+	<p id='p1'>Please <em>go to</em> DOM world</p>
+	<hr />
+	<div id="inserthere" style="background-color: blue;"></div>
+	<script type="text/javascript">
+		function cloneAndcopy(nodeId, deep){
+			var toclone = document.getElementById(nodeId)
+			var clonenode = toclone.cloneNode(deep)
+			var insertPoint = document.getElementById('inserthere')
+			insertPoint.appendChild(clonenode);
+		}
+	</script>
+	
+	<form action="#">
+		<input type="button" value='copy' onclick="cloneAndcopy('p1', false)">
+		<input type="button" value='deepcopy' onclick="cloneAndcopy('p1', true)">
+	</form>	
+</body>
+</html>

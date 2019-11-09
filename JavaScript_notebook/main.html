@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>框架内容</title>
+	<script type="text/javascript">
+		function getFrame(){
+			var frameObj = window.frameElement;
+			alert(frameObj);
+			alert("当前的框架名称为: " + frameObj.name);
+			alert("当前页面的框架数量为: " + window.length);
+		}
+		
+		function openwin(){
+			window.open('top.html', "_blank");
+		}
+	</script>
+	
+</head>
+<body>
+	<form action="#" name="formdata" method="post" accept=''>
+		<input type="hidden" name="hidObj" value="隐藏变量">
+		<p>
+			<center>
+				<h1>显示框架页面的内容</h1>
+			</center>
+		</p>
+		<p>
+			<center>
+				<input type="button" value="窗口框架" onclick="getFrame()">
+			</center>
+			<center>
+				<input type="button" value="打开窗口" onclick="openwin()">
+			</center>
+		</p>
+	</form>
+	
+</body>
+</html>

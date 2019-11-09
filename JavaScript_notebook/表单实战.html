@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>用户登录</title>
+	<script type="text/javascript">
+		
+		function txtfocus(event){
+			var e = window.event;
+			var obj = e.srcElement;
+			obj.style.background = '#aae244';
+		}
+		
+		function txtblur(event){
+			var e = window.event;
+			var obj = e.srcElement;
+			obj.style.background = '#12b244';
+		}
+		
+		function getclick(){
+			
+			var msg = '您的信息如下: \n'
+			var obj = document.myform
+			msg += "您的用户名是: " + obj.user.value + '\n';
+			msg += '您的密码是: ' + obj.password.value + '\n';
+			msg += '您的性别是: ' + obj.sex.value + '\n';
+			msg += '您的邮箱是: ' + obj.myemail.value + '\n';
+			msg += '您的电话是: ' + obj.myphone.value + "\n";
+			msg += "您的地址是: " + obj.address.value + '\n';
+			if (confirm("是否要核对信息?"))
+			{
+				alert(msg);
+			}
+			else{
+				return;
+			}
+		}
+	
+	</script>
+	
+	<style type="text/css">
+		label{
+			display: inline;
+			height: 42px;
+			width: px;
+			margin-right: 10px;
+			line-height: 42px;
+			font-size: 14px;
+			color: #666;
+			font-weight: 700;
+			text-align: right;
+		}
+	</style>
+	
+</head>
+<body>
+	<h2 align="center">用户登录</h2>
+	<hr />
+	<form action="#" name="myform" id="myform" method="post">
+		<table align="center" border="0" class="mytb">
+			<tr>
+				<td>
+					<label class="myp">用户名:</label>
+					<input type="text" onfocus="txtfocus()" name="user">
+				</td>
+			</tr>
+			<br />
+			<tr>
+				<td>
+					<label class="password">密码:</label>
+					<input type="password" onblur="txtblur()" onfocus="txtfocus()" name="password">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="sex">性别:</label>
+					<input type="radio" value="男" name="sex" onfocus="txtfocus()" onblur="txtblur()">男
+					<input type="radio" value="女" name="sex">女
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="email">邮箱:</label>
+					<input type="email" name="myemail" onfocus="txtfocus()" onblur="txtblur()">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="phone">电话号码:</label>
+					<input type="text" name="myphone" onfocus="txtfocus()" onblur="txtblur()">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label class="address">地址: </label>
+					<input type="text" name="address" onfocus="txtfocus()" onblur="txtblur()">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" value="提交" onclick="getclick()">
+				</td>
+			</tr>
+
+		</table>
+	</form>	
+</body>
+</html>

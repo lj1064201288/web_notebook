@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>递归调用</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var meg = "函数递归调用:\n"
+		function test(){
+			var result;
+			meg += '调用的语句:\n';
+			meg += "result = sum(20);\n";
+			meg += '调用步骤:\n';
+			result = sum(20);
+			meg += "调用结果:\n";
+			meg += "result = " + result + '\n';
+			alert(meg);
+		}
+		
+		function sum(m){
+			if (m==0){
+				return 0
+			}
+			else{
+				meg += "    语句: result = "+ m + "+sum(" + (m-2) +")\n";
+				result = m + sum(m-2);
+			}
+			return result;
+		}
+	</script>
+	<input type="submit" value="test" onclick="test()">
+</body>
+</html>

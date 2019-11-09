@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>计算机</title>
+</head>
+	<style type="text/css">
+		section {
+			background-color: lightslategrey;
+			width: 320px;
+			height: 360px;
+			text-align: center;
+			border: solid #0F0404 2px;
+			padding-top: 1px;
+			margin: 2px;
+		}
+		img{
+			margin: 0px 10px;
+		}
+	
+		.txtBaroder {
+			border: solid #0F0404 2px;
+			margin: 5px;
+		}
+	</style>
+<body>
+	
+	<script type="text/javascript">
+		function computer(op){
+			var num1 = parseFloat(document.myform.num1.value);
+			var num2 = parseFloat(document.myform.num2.value);
+			
+			if (op=="+"){
+				document.myform.txtResult.value = num1 + num2;
+			}
+			else if(op=="-"){
+				document.myform.txtResult.value = num1 - num2;
+			}
+			else if(op=="*"){
+				document.myform.txtResult.value = num1 * num2;
+			}
+			else if(op=="/"){
+				document.myform.txtResult.value = num1 / num2;
+			}
+			
+		}
+	</script>
+	<section align="center">
+		<h1><img src="C:\web\web\JavaScript_notebook\images\logo.png" width="80px" height="50px">欢迎来到熊猫看书</h1>
+		<form name="myform" id="myform", method="post" action=''>
+			<h3><img src="C:\web\web\JavaScript_notebook\images\javascript.jpg" width="50px" heiht="50px">简易计算机</h3>
+			<p>请输入第一个数字:<input type="text" class="txtBaroder" id="num1" name="num1"></p>
+			<p>请输入第二个数字:<input type="text" class="txtBaroder" id="num2" name="num2"></p>
+			<input type="button" value="+" onclick="computer('+')">
+			<input type="button" value="-" onclick="computer('-')">
+			<input type="button" value="*" onclick="computer('*')">
+			<input type="button" value="/" onclick="computer('/')">
+			<p>计算结果:<input type="text" class='txtBaroder' id="txtResult" name="txtResult"></p>
+		</form>
+	</section>
+</body>
+</html>

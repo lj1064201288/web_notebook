@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>事件处理</title>
+
+	<script type="text/javascript">
+		function save(){
+			alert('数据保存成功')
+		}
+		function del(){
+			alert('数据删除成功')
+		}
+		function hel(){
+			alert('按f12查看帮助')
+		}
+		
+	</script>
+	
+</head>
+<body>
+	<input type="button" value="保存" onclick="save()">
+	<input type="button" value="删除" ondblclick="del()">
+	<input type="button" value="帮助" onmouseover="hel()">
+	<input type="button" value="帮助" onmouseout="hel()">
+	<input type="button" value="帮助" onmousedown="hel()">
+	<input type="button" value="帮助" onmouseup="hel()">
+	<font onmouseover="this.style.color='red'" onmouseout="this.style.color='green'">hello world!!</font>
+	<font onselect="this.style.color='red'">高亮</font>
+	<input type="text" onselect="this.style.color='green'">
+</body>
+</html>

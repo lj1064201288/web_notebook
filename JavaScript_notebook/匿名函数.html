@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>匿名函数</title>
+</head>
+<body>
+	<center>
+		<p>通过匿名函数触发事件</p>
+		<br />
+		<form action="#" name="myform" id="myform">
+			<input type="button" name="mybutton" value='测试' id='mybutton'>
+		</form>
+	</center>
+	<script type="text/javascript">
+		document.myform.mybutton.onclick = new function(){
+			alert('已经单击按钮!!!')
+		}
+		
+	</script>
+	
+</body>
+</html>

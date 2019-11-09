@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>2020年倒计时</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function distance(title, inttime, divId){
+			var distime = new Date(inttime);
+			var nowtime = new Date();
+			var divId = document.getElementById(divId);
+			
+			var leave = distime.getTime() - nowtime.getTime();
+			var day = Math.ceil(leave / (1000*60*60*24));
+			if (day > 1){
+					divId.innerHTML = '<b>距'+ title + "还有" + day + "天!</b>"
+			}
+			else if (day==1){
+				divId.innerHTML = '<b>今天就是' + title + "了.</b>"	
+			}
+			else{
+				if (day==0){
+					divId.innerHTML = '<b>今天就是' + title +".</b>"
+				}
+				else{
+					divId.innerHTML = "<b>" + title + " off.</b>" 
+				}
+			}
+		}
+	</script>
+	<table width="350px" height="450px" border="0" align="center" cellpadding="0" cellspacing="0">
+		<tr>
+			<td valign="bottom">
+				<table width="346px" height="418px" border="0" align="center" cellpadding="0" cellspacing="0">
+					<tr>
+						<td width="76"></td>
+						<td width="270">
+							<div id="counDown">
+								<b>------------</b>
+							</div>
+						</td>
+						<td></td>
+					</tr>
+				</table>
+			</td>
+		</tr>
+	</table>
+	<script>
+		distance('2020年', "1/1/2020", 'counDown');
+	</script>
+</body>
+</html>

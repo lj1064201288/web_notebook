@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>测试输入的年份是否为闰年</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function checkyear(){
+			var yeartxtObj = document.all.txtyear;
+			var yeartxt = yeartxtObj.value
+			if (yeartxt == null && yeartxt <= 1 && yeartxt.length < 1 ){
+				alert('请输入正确的年份!');
+				yeartxtObj.focus();
+				return;
+			}
+			if (isNaN(yeartxt)){
+				alert("请输入正确的年份!");
+				yeartxtObj.focus();
+				return;
+			}
+			if (leapyear(yeartxt)){
+				alert(yeartxt + "是闰年!");
+				yeartxtObj.focus();
+				return;
+			}
+			else{
+				alert("不是闰年!")
+			}
+			
+			function leapyear(year){
+				if (year % 100 == 0 && year % 400 == 0)
+					return true;
+				if (year % 4 == 0)
+					return true;
+				else{
+					return false;
+				}
+			}
+			
+		}
+	</script>
+	<p>请输入您要测试的年份:</p>
+	<input type="text" name="txtyear">
+	<input type="button" onclick="checkyear()" value="start">
+	
+</body>
+</html>

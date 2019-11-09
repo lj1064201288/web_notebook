@@ -1,0 +1,17 @@
+<!Doctype htlm>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<title>创建变量</title>
+</head>
+<body>
+	<p>创建变量，点击后改变</p>
+	<button onclick="myfunc()">点击这里</button>
+	<p id="demo"></p>
+	<script>
+		function myfunc(){
+			document.getElementById('demo').innerHTML = "点击成功!";
+		}
+	</script>
+</body>
+</html>
