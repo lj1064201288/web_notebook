@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DOM的Node节点</title>
+</head>
+<body>
+	<div>明月几时有,</div>
+	<div>把酒问青天。</div>
+	<div id="not" value="不知天上宫阙">不知天上宫阙,</div>
+	<div>今夕是何年。</div>
+	<div>我欲乘风归去,</div>
+	<div id="anther" title="水调歌头">又恐琼楼玉宇。</div>
+	<div>高处不胜寒,</div>
+	<div id="year">今夕是何年。</div>
+	
+	<script type="text/javascript">
+		// Node节点的节点类型
+		// 1. 元素节点 Element_Node		【html标签】      
+		// 2. 属性节点 Attribute_Node	【标签的属性】		
+		// 3. 文本节点 Text_Node		【标签的文本内容】
+		
+		// Node节点的常用属性
+		// 节点名称       节点对象.NodeName
+		// 节点类型       节点对象.NodeType
+		// 节点内容       节点对象.NodeValue
+		// 元素节点:
+		var not = document.getElementById("not");
+		console.log(not);
+		
+		var name = not.nodeName;
+		console.log(name);
+		
+		var type = not.nodeType;
+		console.log(type);
+		
+		// 元素节点的节点内容都是为null
+		var content = not.nodeValue;
+		console.log(content);
+		
+		
+		// 属性节点:
+		// 需要通过元素节点去找到属性节点
+		var anther = document.getElementById("anther");
+		
+		// 找到属性节点
+		var title = anther.attributes.getNamedItem("title");
+		console.log(title);
+		// 属性节点的名称
+		var name = title.nodeName;
+		console.log(name);
+		// 属性节点的类型
+		var type = title.nodeType;
+		console.log(type);
+		// 属性节点的内容
+		var content = title.nodeValue;
+		console.log(content);	
+		
+		// 文本节点
+		// 需要找到元素节点后去找到节点内的内容
+		var year = document.getElementById("year");
+		console.log(year);
+		var doc = year.childNodes[0];
+		console.log(doc);
+		// 文本节点的名称, 内容节点的名称统一为#text
+		name = doc.nodeName;
+		console.log(name);
+		type = doc.nodeType;
+		console.log(type);
+		// 文本节点的内容
+		content = doc.nodeValue;
+		console.log(content);		
+		
+		
+	</script>
+</body>
+</html>

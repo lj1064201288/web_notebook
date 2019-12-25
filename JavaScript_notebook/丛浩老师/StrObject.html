@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>字符串对象</title>
+	<script type="text/javascript">
+		// string对象
+		var str = '10世9生挣得8钱7两6分5厘4毫三心二意，一等下流.'
+		// charAt()输入下标获得指定下标的字符
+		var result = str.charAt(5);
+		console.log(result);
+		// charCodeAt()获得指定下标下的字符的ascll编码
+		var result = str.charCodeAt(10);
+		console.log(result);
+		// concat()将两个字符串进行连接（不推荐使用，因为+更方便）
+		str1 = '得8钱7两6分5厘4毫三心二意，一等下流.'
+		result = str.concat(str1);
+		console.log(result);
+		// length 获得字符串的长度
+		result = str.length;
+		console.log(result);
+		// indexOf()获取指定的字符的所在下标位置, 只会获取第一个
+		result = str.indexOf("一");
+		console.log(result);
+		// lastIndexOf()获取获取指定的字符的所在下标位置, 获取最后一个
+		result = str.lastIndexOf("下");
+		console.log(result);
+		
+		// toUpperCase() 将字符串内的字符全部大写(只能英文实现)
+		var str = 'if you love me.'
+		result = str.toUpperCase();
+		console.log(result);
+		// toLowerCase() 将字符串内的字符全部小写(只能英文实现)
+		var str = 'I LOVE YOU';
+		result = str.toLowerCase();
+		console.log(result);
+	
+		// split（）将字符串以参数的内容为分隔转为数组
+		var game = 'wow-lol-cf-pubg-re';
+		var games = game.split('-');
+		console.log(games);
+		
+		// replace()将字符串内指定的字符进行更改，只能改一个
+		var str = '前女友的饭做得真好吃，现在吃不到前女友做的饭了.';
+		console.log(str);
+		result = str.replace('前女友', '前任');
+		console.log(result);
+		
+		// slice() 切片，可以指定两个下标获得，下标之间的字符（可以使用负数）
+		var kongzi = '孔子说:"己所不宜,勿施于人",意思是:"自己不孕不育，不能给别人种子."'
+		result = kongzi.slice(5,-1);
+		console.log(kongzi);
+		console.log(result);
+		// substr() 切片， 第一个参数是开始的位置，可以是参数，第二个参数是制定获取的字符个数(开始位置可以是负数)
+		result = kongzi.substr(-5, 6);
+		console.log(result);
+		// substring()切片, 位置参数只能是正整数，如果为负数，则代表是0，第二个位置是结束位置，可以在第一个位置参数之前
+		result = kongzi.substring(5, 1);
+		console.log(result)
+		
+	</script>
+	
+</head>
+<body>
+</body>
+</html>

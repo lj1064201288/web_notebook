@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>文本内容测试</title>
+</head>
+	<script type="text/javascript">
+		function nodeStatus(node){
+			var tmp = "";
+			
+			if (node.nodeName != null){
+				tmp += "NodeName: " + node.nodeName + '\n';
+			}
+			else{
+				tmp += "NodeName: null!!! \n"
+			}
+			
+			if (node.nodeValue != null){
+				tmp += "NodeValue: " + node.nodeValue + "\n";
+			}
+			else{
+				tmp += 'NodeValue: null!!! \n'
+			}
+			
+			return tmp;
+		}
+		
+		function MyTest(){
+			var newParagraph = document.createElement("p");
+			var newTextNode = document.createTextNode(document.MyForm.MyField.value);
+			newParagraph.innerHTML = newTextNode.nodeValue;
+			var msg = "";
+			
+			msg += nodeStatus(newParagraph);
+			msg += nodeStatus(newTextNode);
+			document.MyForm.appendChild(newParagraph)
+			alert(msg);
+		}
+	</script>
+<body>
+	<form action="#" name="MyForm">
+		<input type="text" name="MyField" placeholder="请输入一段文字">
+		<input type="button" value="提交" onclick="MyTest()">
+	</form>
+</body>
+</html>

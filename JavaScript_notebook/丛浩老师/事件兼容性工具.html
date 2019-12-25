@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>事件兼容性工具</title>
+	<style type="text/css">
+		#teacher{
+			height: 100px;
+			background-color: aqua;
+		}
+	</style>
+</head>
+<body>
+	<div id="teacher">I'am a teacher</div>
+	
+	<script type="text/javascript">
+		// 事件兼容性工具
+		// 创建一个对象，里面可以使用添加以及删除事件
+		var eventTools = {
+			// 添加一个事件, 需要三个参数,第一个为元素/标签, 第二个参数为事件类型(为click)， 第三个参数为事件函数
+			addEvent: function(element, type, func){
+				if(element.addEventListener){ // 非ie的 DOM2
+					element.addEventListener(type, func, false);
+				}
+				else if(element.attachEvent){ // ie的 DOM2
+					element.attachEvent("on" + type, func);
+				}
+				else{
+					element["on" + type] = func; // DOM0
+				}
+			},
+			// 删除一个事件
+			delEvent: function(element, type, func){
+				if(element.removeEventListener){ // 非id的 DOM2
+					element.removeEventListener(type, func, false);
+				}
+				else if(element.detachEvent){ // ie的 DOM2
+					element.detachEvent("on" + type, func);
+				}
+				else{
+					element["on" + type] = null; // DOM0
+				}
+			}
+		}
+		
+		var teacher = document.getElementById("teacher");
+		
+		function show(){
+			alert(teacher.innerHTML);
+		}
+		
+		eventTools.addEvent(teacher, "click", show);
+		setTimeout(function(){
+			eventTools.delEvent(teacher, 'click', show);
+		}, 5000);
+	
+	</script>
+</body>
+</html>

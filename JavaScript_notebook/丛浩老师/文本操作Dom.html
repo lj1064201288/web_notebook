@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>文档操作DOM</title>
+</head>
+<body>
+	<div id="liba">明月几时有，把酒问青天.不知天上宫阙，今夕是何年.</div>
+	
+	<script>
+		// 成员方法
+		// 先获取指定的元素节点
+		var liba = document.getElementById("liba");
+		console.log(liba);
+		// 再获取元素节点中的文本内容
+		var txt = liba.lastChild;
+		console.log(txt, typeof txt);
+//		console.log(txt.length);
+//		console.log(txt.data, typeof txt.data);
+		console.log(txt.nodeType);
+		//splitText()切割文本点, 只需要一个参数, 参数为切割的位置
+		//var result = txt.splitText(2);
+		//console.log(result);
+		// appendData()在选中的文本内容中的后面添加内容
+		// txt.appendData("asfafa");
+		// resplaceData()替换文本内容, 需要三个参数，第一个为从什么位置开始，第二个参数为替换几个，第三个参数为替换的内容
+		txt.replaceData(6, 5, '水调歌头');
+		// deleteData() 删除文本节点中的内容,需要两个参数，第一个参数是开始的位置，第二个参数为删除几个
+		txt.deleteData(6, 5);
+		
+		
+	</script>
+	
+</body>
+</html>
+

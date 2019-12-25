@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>array</title>
+	<script type="text/javascript">
+		// 数组
+		var arr = [1, 2, 3, 4, 5];
+		// 查看数组原型, 数组也是一个对象类型
+		console.log(arr, typeof arr);
+		// 使用下标(索引)访问元素，也可称之为键值对, 访问数组内的元素是以下标0开始的
+		console.log(arr[1]);
+		// 数组的增加操作, push是在数组的尾部添加一个元素
+		arr.push(6);
+		console.log(arr);
+		// 数组的抛出操作, pop是将数组中的最后一个元素进行抛出给另外一个变量
+		var arr1 = arr.pop();
+		console.log(arr);
+		console.log(arr1);
+		// pop内是无法处理传入的参数的，他不会报错，也会执行，会无视传入的参数然后进行pop抛出最后一个元素处理
+//		var arr2 = arr.pop(2);
+//		console.log(arr2);
+//		console.log(arr);
+		
+		// 数组删除操作,delete函数是数组内的删除函数, 当指定的元素被删除之后，该元素的位置还是没有删除的，会在原来的位置上成为一个empty
+		delete arr[2]
+		console.log(arr);
+		// 数组更改元素，直接使用数组的名加上下标的位置赋值，就可以直接改变该位置的元素值(数组内是允许数字与字符串共同存在的)
+		arr[2] = 3;
+		console.log(arr);
+		arr[3] = '4';
+		console.log(arr);
+		// 数组的数据查找, 数组的查找可以使用下标进行查找
+		// 使用下标进行查找
+		console.log(arr[0]);
+		// 数组的长度属性，每个数组内都有一个自带的length属性，可以查看数组的长度
+		console.log(arr.length);
+		// 数组的多种创建方式:
+		// 1.是可以直接new一个Array
+		var array = new Array();
+		console.log(array, typeof array);
+		// 2. 使用指定长度创建一个数组，使用指定长度创建的数组，不管里面是否有值，数组的长度都是有的，如果给数组没有赋值，那么每个元素都是empty
+		var larr = new Array(8);
+		console.log(larr);
+		
+		// shift()和unshift()方法
+		// shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值
+		var arr0 = arr.shift();
+		console.log(arr);
+		console.log(arr0);
+		// unshift() 方法是用于在数组的第一个元素之前添加一个或者多个元素，并返回新的长度
+		var unarr = arr.unshift(1);
+		console.log(unarr);
+		console.log(arr);
+		// 添加多个元素
+		unarrs = arr.unshift(1,"1", "2");
+		console.log(unarrs);
+		console.log(arr);
+		// join()方法， join方法是将数组中的每个元素拼接成一个字符串，如果有参数，就是以参数隔开，如果没有参数，就是直接连接成一个字符串
+		var person = ['boy', 'girl', 'young', 'adult', 'children', 'old']
+		console.log(person);
+		var persons = person.join(' ♥ ');
+		console.log(persons);
+		var personce = person.join(' ');
+		console.log(personce);
+		// 数组的排序, reverse是将数组的位置进行调换，不是按照字母或者数组排序的
+		var rarr = person.reverse();
+		console.log(rarr);
+		// sort方法是是将数组按照ascll值进行排序的
+		var aperson = person.sort();
+		console.log(aperson);
+		arr = [123, 2332, 1, 3453, 53, 565, 235, 65];
+		var aarr = arr.sort();
+		console.log(aarr);
+		// 如果想要使用数字大小进行排序，则需要使用一个辅助函数添加给sort作为参数
+		function order(x, y){
+			if (x > y){
+				return true;
+			}
+			else if (x==y){
+				return false;
+			}
+			else{
+				return -1;
+			}
+		}
+		
+		var oarr = arr.sort(order);
+		console.log(oarr);
+		
+		// 取数组中的最大与最小值max() 和 min()方法
+		var great = Math.max.apply(null, arr);
+		console.log(great);
+		
+		var short = Math.min.apply(null, arr);
+		console.log(short);
+		
+		// slice()万能方法，切片
+		var qp = person.slice(1, 5);
+		console.log(person);
+		console.log(qp);
+		
+		
+	</script>
+	
+</head>
+<body>
+</body>
+</html>

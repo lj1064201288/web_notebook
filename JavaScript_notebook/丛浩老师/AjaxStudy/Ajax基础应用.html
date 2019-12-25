@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Ajax基础应用</title>
+</head>
+<body>
+	<button id="aj">Ajax触发</button>
+</body>
+	<script type="text/javascript">
+		function doAjax(){
+			// 1. 创建ajax对象
+			var xhr = new XMLHttpRequest();
+			// 2. 打开链接
+			xhr.open('get', 'three.html', true);
+			// 3. 发送数据	
+			xhr.send('asdasds');
+			// 4. 判断是否请求成功
+			xhr.onreadystatechange = function(){
+				if(xhr.readyState == 4){
+					if(xhr.status == 200){
+						alert(xhr.responseText);
+					}
+				}
+			}
+		}
+		aj.addEventListener("click", doAjax, false);
+	</script>
+	
+</html>

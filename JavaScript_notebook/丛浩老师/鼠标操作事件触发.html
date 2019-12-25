@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>鼠标操作事件触发</title>
+	<style type="text/css">
+		#dj{
+			height: 100px;
+			background: red;
+			margin: 10px;
+		}
+		#db{
+			height: 100px;
+			background-color: turquoise;
+			margin: 10px;
+		}
+		#move{
+			height: 200px;
+			width: 300px;
+			background: #4D1A73;
+			margin: 50px;
+		}
+		#wheel{
+			height: 200px;
+			width: 300px;
+			background: pink;
+			margin: 50px; 
+		}
+		#over{
+			height: 200px;
+			width: 300px;
+			background: purple;
+			margin: 50px; 
+		}
+		#enter{
+			height: 200px;
+			width: 300px;
+			background: #0E0E6D;
+			margin: 50px; 
+		}
+		#down{
+			height: 100px;
+			margin: 10px;
+			background: gray;
+			color: white;
+		}
+	</style>
+</head>
+<body>
+	<div id="down">鼠标按下与释放事件</div>
+	<div id="dj">鼠标点击事件</div>
+	<div id="db">鼠标双击事件</div>
+	<div id="move" align="center">鼠标移动事件</div>
+	<div id="wheel" align="center">鼠标滑动事件事件</div>
+	<div id="over">鼠标经过,移除事件</div>
+	<div id="enter">鼠标进入，离开事件</div>
+	
+</body>
+</html>
+<script type="text/javascript">
+	// clickdown()鼠标按下事件
+	var down = document.getElementById("down");
+	// 鼠标按下事件函数
+	function wn(){
+		down.style.backgroundColor = 'black'
+	}
+	// 添加鼠标按下事件
+	down.addEventListener("mousedown", wn, false);
+	// 鼠标释放事件函数
+	function up(){
+		down.style.backgroundColor = 'blue';
+	}
+	// 添加鼠标释放事件
+	down.addEventListener("mouseup", up, false);
+	
+	// onclick()鼠标点击事件
+	var dj = document.getElementById("dj");
+	// 点击事件函数
+	function dianji(){
+		dj.style.backgroundColor = "green";
+	}
+	// 创建点击事件
+	dj.addEventListener('click', dianji, false);
+	
+	// dblcilik()鼠标双击事件
+	var db = document.getElementById("db");
+	// 双击事件函数
+	function dbl(){
+		db.style.backgroundColor = 'yellow';
+	}
+	// 创建双击事件
+	db.addEventListener('dblclick', dbl, false);
+	
+	// 鼠标移动事件
+	var move = document.getElementById("move")
+	// 移动事件函数
+	function eventMove(){
+		console.log('鼠标正在移动' + Math.random());
+	}
+	// 创建移动事件
+	move.addEventListener("mousemove", eventMove, false);
+	
+	// 鼠标滑动事件
+	var wheel = document.getElementById("wheel");
+	
+	// 鼠标滑动函数
+	function wh(){
+		wheel.style.backgroundColor = 'blue';
+	}
+	// 添加鼠标滑动事件
+	wheel.addEventListener('mousewheel', wh, false);
+	
+	// 鼠标经过事件
+	var over = document.getElementById("over");
+	// 鼠标经过事件函数
+	function ov(){
+		over.style.backgroundColor = 'orange';
+	}
+	// 添加经过事件
+	over.addEventListener("mouseover", ov, false);
+	// 鼠标移除事件函数
+	function out(){
+		over.style.backgroundColor = 'green';
+	}
+	// 添加移除事件
+	over.addEventListener("mouseout", out, false);
+	
+	
+	// 鼠标进入事件
+	var enter = document.getElementById("enter");
+	// 鼠标进入事件函数
+	function en(){
+		enter.style.backgroundColor = "cyan";
+	}
+	// 添加进鼠标入事件
+	enter.addEventListener('mouseenter', en, false);
+	
+	// 鼠标离开事件函数
+	function leave(){
+		enter.style.backgroundColor = 'brown';
+	}
+	// 添加离开事件
+	enter.addEventListener("mouseleave", leave, false);
+
+</script>

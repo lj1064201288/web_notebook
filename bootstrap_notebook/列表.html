@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>列表</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<!--普通列表-->
+		<ul class="list-group">
+			<li class="list-group-item">Home</li>
+			<li class="list-group-item">Music</li>
+			<li class="list-group-item">Moive</li>
+		</ul>
+		<hr />
+		<!--添加徽章-->
+		<ul class="list-group">
+			<li class="list-group-item">Home</li>
+			<li class="list-group-item">新闻
+				<span class="label label-primary pull-right">New</span>
+			</li>
+			<li class="list-group-item">博客
+				<span class="badge">新</span>
+			</li>
+		</ul>
+		<hr />
+		<!--添加链接-->
+		<a href="#" class="list-group-item list-group-item-success">免费注册网站</a>
+		<a href="#" class="list-group-item active">Home</a>
+		<a href="#" class="list-group-item">新闻</a>
+		
+		<hr />
+		<!--添加自定义内容-->
+		<div class="list-group">
+			<a href="#" class="list-group-item active">
+				<h4 class="list-group-item-heading">
+					购物
+				</h4>
+			</a>
+			<a href="#" class="list-group-item">
+				<h4 class="list-group-item-heading">
+					淘宝
+				</h4>
+				<p class="list-group-item-text">
+					百亿级数据网站
+				</p>
+			</a>
+		</div>
+		<div class="list-group">
+			<a href="#" class="list-group-item active">
+				<h4 class="list-group-item-heading">
+					学习
+				</h4>
+			</a>
+			<a href="#" class="list-group-item">
+				<h4 class="list-group-item-heading">
+					菜鸟教程
+				</h4>
+				<p class="list-group-item-text">
+					学习网站
+				</p>
+			</a>
+		</div>
+		<hr />
+		
+		<!--禁用与激活-->
+		<ul class="list-group">
+			<li class="list-group-item active">Home</li>
+			<li class="list-group-item">Music</li>
+			<li class="list-group-item">Book</li>
+			<li class="list-group-item disabled">Mp4</li>
+		</ul>
+		<hr />
+		<!--多颜色选项-->
+		<ul class="list-group">
+			<li class="list-group-item list-group-item-danger">danger</li>
+			<li class="list-group-item list-group-item-info">info</li>
+			<li class="list-group-item list-group-item-success">success</li>
+			<li class="list-group-item list-group-item-warning">warning</li>
+			<li class="list-group-item list-group-item-primary">primary</li>
+			<li class="list-group-item list-group-item-dark">drak</li>
+			<li class="list-group-item list-group-item-secondary">secondary</li>
+			<li class="list-group-item list-group-item-light">light</li>
+		</ul>
+		
+	</div>
+	
+</body>
+</html>

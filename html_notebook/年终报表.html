@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>年终报表</title>
+
+	
+</head>
+<body>
+	<table width="45%" align="center">
+		<center>
+			<h2>年终报表统计栏</h2>
+			<thead bgcolor="#00FFFF">
+				<tr>
+					<td width="50%">月份</td>
+					<td width="50%">收入(RMB)</td>
+				</tr>
+			</thead>
+			<tbody bgcolor="#DDCECE">
+				<tr>
+					<td>1月</td>
+					<td class="inc">45714</td>
+				</tr>
+				<tr>
+					<td>2月</td>
+					<td class="inc">89071</td>
+				</tr>
+				<tr>
+					<td>3月</td>
+					<td class="inc">48672</td>
+				</tr>
+				<tr>
+					<td>4月</td>
+					<td class="inc">43671</td>
+				</tr>
+				<tr>
+					<td>5月</td>
+					<td class="inc">52332</td>
+				</tr>
+				<tr>
+					<td>6月</td>
+					<td class="inc">56531</td>
+				</tr>
+				<tr>
+					<td>7月</td>
+					<td class="inc">65322</td>
+				</tr>
+				<tr>
+					<td>8月</td>
+					<td class="inc">45424</td>
+				</tr>
+				<tr>
+					<td>9月</td>
+					<td class="inc">12893</td>
+				</tr>
+				<tr>
+					<td>10月</td>
+					<td class="inc">78261</td>
+				</tr>
+				<tr>
+					<td>11月</td>
+					<td class="inc">51231</td>
+				</tr>
+				<tr>
+					<td>12月</td>
+					<td class="inc">41211</td>
+				</tr>
+			</tbody>
+			<tfoot bgcolor="yellow">
+				<tr>
+					<td>总收入</td>
+					<td name="summer" id='summer'></td>
+				</tr>
+				<tr>
+					<td>平均收入</td>
+					<td name="ave" id='ave'></td>
+				</tr>
+			</tfoot>
+			
+		</center>
+	</table>
+	<script type="text/javascript">
+		(function(){
+			var ele = document.getElementById('summer')
+			var tbody = document.getElementsByClassName("inc")
+			var l = tbody.length
+			var sum = 0
+			for(var i=0; i<l; i++){
+				sum += Number(tbody[i].innerHTML)
+			}
+			ele.innerHTML = sum;
+		})();
+		(function(){
+			var ele = document.getElementById('ave')
+			var tbody = document.getElementsByClassName("inc")
+			var l = tbody.length
+			var sum = 0
+			for(var i=0; i<l; i++){
+				sum += Number(tbody[i].innerHTML)
+			}
+			ele.innerHTML = sum/12;
+		})();
+
+	</script>
+</body>
+</html>

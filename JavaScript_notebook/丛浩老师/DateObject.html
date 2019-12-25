@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>DateObject</title>
+	<script type="text/javascript">
+		// Date对象是需要实例后使用
+		var date = new Date();
+		// Date的原型
+		console.log(date);
+		console.log(date.toString());
+		console.log(date.toLocaleString());
+		console.log(date.valueOf());
+		
+		// Date获取时间各个时间
+		console.log(date.getDate());
+		// 获取年
+		console.log(date.getFullYear());	
+		// 获取月
+		console.log(date.getMonth());
+		// 获取日
+		console.log(date.getDay());
+		// 获取小时
+		console.log(date.getHours());
+		// 获取分钟数
+		console.log(date.getMinutes());
+		// 获取秒
+		console.log(date.getSeconds());
+		// 获取毫秒
+		console.log(date.getMilliseconds());
+		// 获取时间戳
+		console.log(date.getTime());
+		
+		// 设置时间获得时间戳
+		var sj = new Date("1996/2/24 5:0:0");
+		console.log(sj);
+		sjc = sj.getTime();
+		console.log(sjc);
+		
+		// 设置年
+		var date = new Date();
+		date.setFullYear("1996");
+		console.log(date);
+		// 设置月
+		date.setMonth("1");
+		console.log(date);
+		//设置日
+		date.setDate("24");
+		console.log(date);
+		// 设置小时
+		date.setHours("5");
+		console.log(date);
+		//设置分钟
+		date.setMinutes("0");
+		console.log(date);
+		// 设置秒
+		date.setSeconds("0");
+		console.log(date);
+		// 设置毫秒
+		date.setMilliseconds("0");
+		console.log(date);
+		
+		// 计算自己的年龄
+		var sjc = new Date(date);
+		console.log(sjc.getTime());
+		var newdate = new Date();
+		newsjc = newdate.getTime();
+		var bsjc = newdate - sjc;
+		console.log(bsjc);
+		var years = Math.floor(bsjc / (1000 * 3600 * 24 * 31 * 12));
+		console.log(years);
+		
+		// 计算自己的年龄2：
+		var years = newdate.getFullYear() - date.getFullYear();
+		console.log(years);
+		
+		
+	</script>
+</head>
+<body>
+</body>
+</html>

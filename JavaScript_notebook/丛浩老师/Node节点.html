@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Node节点</title>
+</head>
+<body>
+	<ul>
+		<li>人之初，性本善.</li>
+		<li>性相近，习相远.</li>
+		<li>苟不教，性乃迁.</li>
+		<li>教之道，贵以专.</li>
+		<li id="monther">昔孟母，择邻处.</li>
+		<li>子不学，断机枢.</li>
+		<li>窦燕山，有义方.</li>
+		<li>教五子，名俱扬.</li>
+		<li>养不教，父子过.</li>
+		<li>教不严，师之惰.</li>
+	</ul>
+	
+	<script type="text/javascript">
+		// Node节点
+		// 先找到任意一个节点
+		var mother = document.getElementById("monther");
+		console.log(mother);
+		// 找寻父节点
+		var dad = mother.parentElement;
+		console.log(dad);
+		// 找寻子节点, 子节点当中的文本换行都是经过html文档处理的，所以不可见字符也是会算一个子节点
+		var ch = dad.childNodes;
+		console.log(ch);
+		// 找寻第一个子节点
+		var first = dad.firstChild;
+		console.log(first);
+		// 找寻最后一个子节点
+		var last = dad.lastChild;
+		console.log(last);
+	
+		// 找寻下一个兄弟节点
+		var next = mother.nextSibling.nextSibling;
+		console.log(next);
+		// 找寻上一个节点
+		var pre = mother.previousSibling.previousSibling;
+		console.log(pre);
+		
+	
+	</script>
+	
+</body>
+</html>

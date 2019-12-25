@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Node节点方法</title>
+</head>
+<body>
+	<button onclick="appHr()">添加一个HR</button>
+	<button onclick="insertbr()">插入一个BR</button>
+	<button onclick="rep()">改变一个标签</button>
+	<button onclick="del()">删除一个节点</button>
+	<button onclick="copy()">克隆一个节点</button>
+	<div style="width: 200px;">
+		<div align="center" id="liba" title="静夜思">
+			<h4 style="margin: 0;">静夜思</h4>
+			<small id="author">李白</small>
+			<hr />
+			<span>床前明月光,</span>
+			<span>疑似地上霜.</span>
+			<span id="de">举头望明月,</span>
+			<span>低头思故乡.</span>
+		</div>
+	</div>
+	<script type="text/javascript">
+		
+		function appHr(){
+			// Node节点的方法
+			// appendChild() 在父节点的子节点列表的最后插入一个指定的节点
+			var liba = document.getElementById("liba");
+
+			var hr = document.createElement('hr');
+			console.log(hr);
+			liba.appendChild(hr);
+		}
+		
+		function insertbr(){
+			// insertBefore() 在指定的位置之前插入一个节点
+			var liba = document.getElementById("liba");
+			var br = document.createElement('br');
+			var de = document.getElementById("de");
+			liba.insertBefore(br, de);
+		}
+		
+		function rep(){
+			
+			var liba = document.getElementById("liba");
+			var author = document.getElementById("author");
+			console.log(author);
+			var em = document.createElement("em");
+			em.innerHTML = author.textContent;
+			liba.replaceChild(em, author);	
+		}
+		
+		function del(){
+			// removeChild()删除一个节点元素
+			var liba = document.getElementById("liba");
+			var de = document.getElementById('de');
+			
+			liba.removeChild(de.previousSibling.previousSibling);
+		}
+		
+		function copy(){
+			// cloneNode()复制一个节点元素,复制一个节点只会复制节点，而节点内的子节点都是不会复制的.
+			var liba = document.getElementById('liba');
+			// 复制一个节点
+			var result = liba.cloneNode();
+			// 将节点插入到页面当中
+			document.body.appendChild(result);
+		}
+	
+	</script>
+	
+</body>
+</html>

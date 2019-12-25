@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>排版文字代码以及列表</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+</head>
+<body>
+	<!--addr与title标记文本中的标识-->
+	<p>ootstrap 提供了一套响应式、<abbr title="华为">移动设备</abbr>优先的流式栅格系统，随着屏幕或视口</p>
+	<hr />
+	<!--文字的位置-->
+	<h1 class="text-left">Hello World!!!</h1>
+	<h1 class="text-center">Hello World!!!</h1>
+	<h1 class="text-right">Hello World!!!</h1>
+	<h1 class="text-justify">Hello World!!!</h1>
+	
+	<hr />
+	
+	<!--字母大小写-->
+	<h1 class="text-capitalize">Hello world!!!</h1>
+	<h1 class="text-lowercase">Hello World!!!</h1>
+	<h1 class="text-uppercase">Hello World!!!</h1>
+	<hr />
+	<!--有序列表与无序列表-->
+<!--	list-ubstyled去除排序标识-->
+	<ol class="list-unstyled">
+		<li>python</li>
+		<li>java</li>
+		<li>javascript</li>
+	</ol>
+	<hr />
+<!--	list-inline将列表内标签变成行内元素-->
+	<ul class="list-inline">
+		<li>python</li>
+		<li>java</li>
+		<li>javascript</li>
+	</ul>
+<!--	自定义列表-->
+	<dl>
+		<dt>会的语言:</dt>
+		<dd>Python</dd>
+		<dd>C</dd>
+		<dd>Java</dd>
+		<dd>HTTP</dd>
+	</dl>
+	
+	<hr />
+
+	<!--代码排版-->
+	<b>Linux下切换anaconda环境:&nbsp;</b>
+	<code>source ativate envname</code>
+	
+	<br />
+	<b>Django数据库迁移命令:&nbsp;</b>
+	<pre>
+		python manage.py makemigrations
+		python manage.py migrate
+	</pre>
+	
+	Please Enter <kbd>Ctrl+C</kbd> copy
+	<br />
+	<var>y</var><var>=</var><var>a</var><var>+</var><var>b</var>
+	<samp>y</samp><samp>=</samp><samp>200</samp>
+	
+	
+	
+	<script src="js/jquery-3.4.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

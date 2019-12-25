@@ -12,9 +12,13 @@
 			var divId = document.getElementById(divId);
 			
 			var leave = distime.getTime() - nowtime.getTime();
-			var day = Math.ceil(leave / (1000*60*60*24));
+			var day = Math.floor(leave / (1000*60*60*24));
+			var hours = Math.floor(leave / (1000*60*60) - (day*24));
+			var minute = Math.floor(leave / (1000*60) - (day*24*60) - (hours*60));
+			var secoud = Math.floor(leave / 1000 - (day*24*60*60 + hours*60*60 + minute * 60))
+			
 			if (day > 1){
-					divId.innerHTML = '<b>距'+ title + "还有" + day + "天!</b>"
+					divId.innerHTML = '<b>距'+ title + "还有" + day + "天" + hours + "小时" + minute + "分" + secoud + "秒!" + "</b>"
 			}
 			else if (day==1){
 				divId.innerHTML = '<b>今天就是' + title + "了.</b>"	
@@ -28,6 +32,8 @@
 				}
 			}
 		}
+		
+		
 	</script>
 	<table width="350px" height="450px" border="0" align="center" cellpadding="0" cellspacing="0">
 		<tr>
@@ -47,7 +53,12 @@
 		</tr>
 	</table>
 	<script>
-		distance('2020年', "1/1/2020", 'counDown');
+		function dis(){
+			distance('2020年', "1/1/2020", 'counDown');
+		};
+		(function(){
+			setInterval(dis, 1000);
+		})();
 	</script>
 </body>
 </html>
