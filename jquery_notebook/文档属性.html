@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>文档属性</title>
+	<script src="jquery-3.4.1.min.js"></script>
+	<style>
+		.box{
+			width: 400px;
+			height: 400px;
+			border: solid 1px red;
+		}
+		.bg{
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	账号:
+	<input type="text" name="user" id="user" abc="123" value="lj1064201288">
+	密码:
+	<input type="password" name="password" id="password" value="adadadasasd">
+	<hr />
+	<div class="box">box</div>
+	<hr />
+	<div id="text">床前<b>明</b>月光</div>
+	
+</body>
+</html>
+<script type="text/javascript">
+	
+	// prop 获取固定属性值
+	//var user = $("#user").prop("name");
+	//console.log(user);
+	// prop 添加固定属性值
+	//$("#user").prop('value', 'lj1064201288');
+	// attr 获取属性值(所有的属性值，不一定是固定的)
+	// var abc = $("#user").attr("abc");
+	// console.log(abc);
+	// attr 添加属性值(所有的属性值，不一定是固定的)
+	// $("#password").attr('abc', '123');
+	// removeAttr() 删除属性值
+	// $("#password").removeAttr('abc');
+	// CSS类
+	// addClass() 添加一个class元素
+	//$("div").addClass("bg");
+	// 使用函数实现添加addClass()
+	/*
+		$(function(){
+			$('div').mouseover(function(){
+				// 第一个为改变class属性,相当于覆盖
+				// $("div").attr("class", 'bg')
+				// 第二个是添加在上面，之前的class属性也还在
+				$("div").addClass('bg');
+			})
+		})
+	*/
+	// removeClass() 删除class属性
+	/*
+	$(function(){
+		$('div').mouseover(function(){
+			// 第一个为改变class属性,相当于覆盖
+			// $("div").attr("class", 'bg')
+			// 第二个是添加在上面，之前的class属性也还在
+			$("div").addClass('bg');
+		})
+		$("div").mouseout(function(){
+			$("div").removeClass('bg');
+		})
+	})
+	*/
+	// toggleClass() 相当于选中的元素中有这个属性就删除，没有就添加
+	/*
+	$(function(){
+		$("div").mousemove(function(){
+			$("div").toggleClass('bg');
+		})
+	})
+	*/
+	// HTML代码/文本/值
+	// html() 获取html里面的值
+	var html = $("#text").html();
+	console.log(html);
+	// html() 改变html里面的值(会将HTML代码实现出来)
+	$("#text").html("疑似<b>地</b>上霜.");
+	// text() 获取text值(会忽视html代码)
+	var text = $("#text").text();
+	console.log(text);
+	// 改变text里面的值
+	$('#text').text("举头<b>望</b>明月");
+	// val() 获取输入框标签内的值
+	var val = $('#user').val();
+	console.log(val);
+	// val() 改变value内的值
+	$("#user").val("1064201288@qq.com")
+	
+/*
+属性
+attr(name|pro|key,val|fn)
+removeAttr(name)
+prop(n|p|k,v|f)
+removeProp(name)
+CSS 类
+addClass(class|fn)
+removeClass([class|fn])
+toggleClass(class|fn[,sw])
+HTML代码/文本/值
+html([val|fn])
+text([val|fn])
+val([val|fn|arr])
+*/
+</script>

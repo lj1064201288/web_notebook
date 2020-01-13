@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>css操作</title>
+	<script src="jquery-3.4.1.min.js"></script>
+	<style type="text/css">
+		#main{
+			position: absolute;
+			background: cyan;
+			margin: 10px;
+			padding: 20px;
+			border: dotted 5px orange;
+			left: 50%;
+			top: 100px;
+			overflow:scroll;
+		}
+		#le{
+			position: absolute;
+			background: yellow;
+			margin: 10px;
+			padding: 25px;
+			border: dashed 2px green;
+			left: 20px;
+			top: 50px;
+			
+		}
+	</style>
+</head>
+	
+<body>
+	<div id="main">
+		main
+		<div id="le">le</div>
+	</div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+	// height([val|fn])设置选中元素的高度
+	$("#main").height(1400)
+	$("#le").height(2100);
+	// width() 设置选中元素的宽度
+	$("#main").width(400);
+	$("#le").width(800);
+	// 获取元素的高度以及宽度
+	/*var h = $("#main").height();
+	var w = $("#le").width();
+	console.log(h, w);
+	// innerHeight() 获取元素的高度(包含两边的内边距以及边框的像素)
+	var ih = $("#main").innerHeight();
+	console.log(ih);
+	//innerWidth() 获取元素中的宽度(包含两边的内边距以及边框的像素)
+	var iw = $('#le').innerWidth();
+	console.log(iw);
+	// outerHeight([options]) 	获取第一个匹配元素外部高度(默认包括补白和边框)
+	var oh = $("#main").outerHeight();
+	console.log(oh);
+	// outerWidth([options])	获取第一个匹配元素外部宽度(默认包括补白和边框）
+	var ow = $('#le').outerWidth();
+	console.log(ow);
+	// 位置
+	// offset([coordinates]) 获取匹配元素在当前视口的相对偏移。返回的对象包含两个整型属性：top 和 left，以像素计。此方法只对可见元素有效。
+	var tl= $('#main').offset();
+	console.log(tl);
+	// position() 获取匹配元素相对父元素的偏移。
+	var ps = $("#le").position();
+	console.log(ps);
+	// scrollTop() 设置匹配元素相对滚动条顶部的偏移。
+	// $('#main').scrollTop(1000);
+	// scrollLeft() 设置匹配元素相对滚动条左边的偏移
+	// $('#main').scrollLeft(100);
+	*/
+	// 获取滚动条所在的位置
+	$("#main").scroll(function(){
+		var t = $('#main').scrollTop();
+		var l = $("#main").scrollLeft();
+		console.log(t, l);
+	})
+	
+
+	
+/*
+CSS
+css(name|pro|[,val|fn])1.9*
+jQuery.cssHooks
+位置
+offset([coordinates])
+position()
+scrollTop([val])
+scrollLeft([val])
+尺寸
+height([val|fn])
+width([val|fn])
+innerHeight()
+innerWidth()
+outerHeight([options])
+outerWidth([options])
+*/
+</script>

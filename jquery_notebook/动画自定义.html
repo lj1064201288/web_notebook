@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>动画自定义</title>
+	<script src="jquery-3.4.1.min.js"></script>
+	<style>
+		.box{
+			background: yellow;
+			width: 150px;
+			height: 150px;
+			position: absolute;
+			left: 50px;
+			top: 50px;
+			
+		}
+	</style>
+</head>
+<body>
+	<button>animate</button>
+	<button>stop</button>
+	
+	<button>finish</button>
+	<hr />
+	<div class="box"></div>
+</body>
+</html>
+<script>
+	// 关闭该动画效果
+	//$.fx.off = true;
+	$(function(){
+		// animate() 创建自定义动画的元素
+		// 自定义动画1
+		$("button:first").click(function(){
+			$(".box").animate({
+				"border-radius":"300px", 
+				"width": 300, 
+				"height":300, 
+				left:'640', top:"420"
+			}, 3000, function(){
+				$(this).animate({'width':150, 
+						'height':150,
+						'left': '1360',
+						'border-radius': "0px",
+						'top':100}, 2000);
+			})
+		})
+		// 自定义动画2
+		$("button:first").click(function(){
+			$(".box").animate({
+				"border-radius":"300px", 
+				"width": 300, 
+				"height":300, 
+				left:'640', top:"420"
+			}, 3000)
+				// 添加延时操作
+				.delay(3000)
+				.animate({'width':150, 
+							'height':150,
+							'left': '1360',
+							'border-radius': "0px",
+							'top':100}, 2000);
+			})
+		// stop() 暂停动画执行过程效果
+		$("button:eq(1)").click(function(){
+			$(".box").stop();
+		})
+		// finish() 停止当前正在运行的动画，删除所有排队的动画，并完成匹配元素所有的动画。
+		$('button:contains(finish)').click(function(){
+			$(".box").finish();
+		})
+	});
+/*
+自定义
+animate(p,[s],[e],[fn])1.8*
+stop([c],[j])1.7*
+delay(d,[q])
+finish([queue])1.9+
+设置
+jQuery.fx.off
+jQuery.fx.interval3.0-
+*/
+</script>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>jquery基础操作</title>
+	<script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<div>
+		<ul>
+			<li>床前明月光，</li>
+			<li class="shuang">疑是地上霜。</li>
+			<li>举头望明月，</li>
+			<li>低头思故乡。</li>
+			
+		</ul>
+	</div>
+	<hr />
+	<ol>
+		<li>锄禾日当午，</li>
+		<li>汗滴禾下锄。</li>
+		<li>谁知盘中餐，</li>
+		<li id="jq">粒粒皆辛苦。</li>
+	</ol>
+	<style>
+		li{
+			
+		}
+	</style>
+</body>
+</html>
+<script type="text/javascript">
+	// 打印jQuery内容
+	console.log($());
+	// jquery三种选择方式
+	// 1. 直接选择元素
+	//$('li').css("border", 'solid red 1px');
+	//$("li").css("margin", '5px');
+	// 2. 阶级选择器, 第一个为父级，选择后在该元素节点下的所有li节点都会被选中进行处理
+	//$('ul li').css("border", 'solid red 1px');
+	//$('ol li').css("border", 'dashed green 1px');
+	//$('ol li').css('padding', '2px');
+	// 3.元素选择器
+	//$("#jq").css("color", 'red');
+	//$(".shuang").css("color", 'green');
+	// 4. 组合选择器
+	// $("#jq, .shuang").css("font-size", '20px');
+	// 5. 父级选择器, 只会选择下一个对应的元素进行处理，如果下一个元素不存在，那么将不会执行
+	//$("div>ul").css("font-size", '20px');
+	//6. 兄弟选择器, 只能选择一个下一个兄弟节点，但是每多一个+，则会更下一个兄弟节点
+	//$('.shuang+').css("background", 'red');
+	//7.相邻选择器(相邻选择器，会将后面的所有节点都选择进行处理)
+	//$(".shuang~").css("color", 'yellow');
+	
+</script>

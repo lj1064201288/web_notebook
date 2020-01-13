@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>表单</title>
+	<script src="jquery-3.4.1.min.js"></script>
+	<style type="text/css">
+	</style>
+</head>
+<body>
+	<form action="#">
+		<table>
+			<tr>
+				<td>
+					<label for="card">ID:</label>
+					<input type="text" id="card" name="card" value="1234567" disabled>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="user">用户名:</label>
+					<input type="text" id="user" name="user" placeholder="请输入您的账号/邮箱号">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="password">密码:&nbsp;&nbsp;&nbsp;</label>
+					<input type="password" id="psd" name="psd" placeholder="请输入您的密码">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="sex">性别:</label>
+					<input type="radio" name="sex" id="women" value="0">女
+					<input type="radio" name="sex" id="men" value="1" checked>男
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="hobby">喜好:</label>
+					<input type="checkbox" name="hobby">篮球
+					<input type="checkbox" name="hobby" checked>足球
+					<input type="checkbox" name="hobby">游泳
+					<input type="checkbox" name="hobby">看书
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="study">学习:</label>
+					<select name="study" id="study" multiple>
+						<option value="python" selected>python</option>
+						<option value="java">java</option>
+						<option value="html">html</option>
+						<option value="css">css</option>
+						<option value="c">c</option>
+					</select>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<label for="file">文件:</label>
+					<input type="file" name="file" id="file">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="reset" value="重置" name="re">
+					<input type="submit" value="提交" name="sub">
+				</td>
+			</tr>
+			
+		</table>
+	</form>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		// :input 选中所有input标签的元素
+		//$(":input").css('background', 'red');
+		// :text 匹配所有的单行文本框
+		/*
+		$(":text").css('background', 'gray').css("color", 'white');
+		// :password 匹配所有password类型的输入框
+		$(":password").css('background', 'gray').css("color", 'white');
+		// :radio 选中所有单选框
+		$('input:radio').css({width:"50px", height:"50px"});
+		// :checkbox 选中所有的多选框
+		$("input:checkbox").css({width:'20px', height:'20px'});
+		// :submit 选中提交按钮
+		$("input:submit").css({color:'red', background:'green'});
+		// :file 选中文件的按钮
+		$('input:file').css('background', 'yellow');
+		// :reset 选中重置按钮建
+		$('input:reset').css("background", 'orange');
+		*/
+		// 表单对象属性
+		// :enabled 匹配所有可用元素
+		//$("input:enabled").css({border: "dashed 1px red", color: "cyan"});
+		// :disabled 选中不可用的元素
+		//$("input:disabled").css('color', 'red');
+		// :checked 在单选或者多选框内，被选中了操作
+		$("input:checked").css({width:"50px", height:"50px"});
+		// selected 选中select中的节点后改变
+		$("option:selected").css("color", 'red');
+/*
+表单
+:input
+:text
+:password
+:radio
+:checkbox
+:submit
+:image
+:reset
+:button
+:file
+表单对象属性
+:enabled
+:disabled
+:checked
+:selected
+*/
+	})
+
+</script>

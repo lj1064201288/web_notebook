@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>文档处理2</title>
+	<script src="jquery-3.4.1.min.js">
+	</script>
+	<style>
+		span{
+			display: block;
+		}
+		.box2{
+			width: 400px;
+			height: 400px;
+			border: solid red 1px;
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		<button>wrap</button>
+		<button>unwrap</button>
+		<button>wrapAll</button>
+		<button>wrapIinner</button>
+		<button>replaceWith</button>
+		<button>replaceAll</button>
+		<button>empty</button>
+		<button>remove</button>
+		<button>detach</button>
+		<button>clone</button>
+		<span>青青<b>asds</b>原上草</span>
+		<span>一岁<b>野草</b>一枯荣</span>
+		<span>长亭外，古道边。</span>
+	</div>
+	<hr />
+	<div class="box2"></div>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		// wrap() 把所有匹配的元素用其他元素的结构化标记包裹起来。
+		//$("span").wrap('<b/>');
+		
+		
+		$("button:first").click(function(){
+			$("span").wrap("<b/>");
+		})
+		// unwrap() 这个方法将移出元素的父元素。这能快速取消 .wrap()方法的效果。
+		//$("span:first").unwrap();
+		$("button:eq(1)").click(function(){
+			$("span").unwrap();
+		})
+		// wrapAll(html|ele)将所有匹配的元素用单个元素包裹起来
+		$("button:eq(2)").click(function(){
+			$("span").wrapAll("<p/>")
+		})
+		// wrapInner() 将每一个匹配的元素的子内容(包括文本节点)用一个HTML结构包裹起来
+		$("button:eq(3)").click(function(){
+			$("span").wrapAll("<u/>");
+		})
+		
+		// replaceWidth() 将所有匹配的元素替换成指定的HTML或DOM元素。
+		$("button:eq(4)").click(function(){
+			$("span").replaceWith("<b/>");
+		})
+		// replaceAll() 用匹配的元素替换掉所有 selector匹配到的元素。
+		$("button:eq(5)").click(function(){
+			$("span").replaceAll("b");
+		})
+		// empty()删除匹配的元素集合中所有的子节点。
+		$("button:eq(6)").click(function(){
+			$("b").empty()
+		})
+		// remove([expr]) 从DOM中删除所有匹配的元素。除了这个元素本身得以保留之外，其他的比如绑定的事件，附加的数据等都会被移除。
+		$("button:eq(7)").click(function(){
+			$("span").remove();
+		})
+		// detach([expr]) 所有绑定的事件、附加的数据等都会保留下来。
+		$("button:eq(8)").click(function(){
+			$("b").detach();
+		})
+		// clone() 克隆匹配的DOM元素并且选中这些克隆的副本, 元素内容以及事件是不会克隆的
+		$(".box2").click(function(){
+			$(".box2").css("background", 'green');
+		})
+		
+		$("button:eq(9)").click(function(){
+			var box = $('.box2').clone();
+			$(".box").append(box);
+		})
+	})
+	
+	
+/*
+包裹
+wrap(html|ele|fn)
+unwrap()
+wrapAll(html|ele)
+wrapInner(html|ele|fn)
+替换
+replaceWith(content|fn)
+replaceAll(selector)
+删除
+empty()
+remove([expr])
+detach([expr])
+复制
+clone([Even[,deepEven]])
+*/
+</script>

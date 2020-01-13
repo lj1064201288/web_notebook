@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>属性</title>
+	<style type="text/css">
+		.color{
+			
+		}
+		
+	</style>
+	<script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<ol>
+		<li class="mili" id="jir">魔力北极光,</li>
+		<li class="chuan">传说的预言。</li>
+		<li name="onl" id="on">五彩的欧若拉,</li>
+		<li class="color">红橙黄绿蓝,</li>
+		<li id="fovrver" class="mili">相信就是永远.</li>
+	</ol>
+</body>
+</html>
+
+<script>
+	// attribute CSS选择器，选中元素后进行操作
+	$("#ji").css("background", 'green');
+	// attribute=value  选中的属性且等于对应的值操作
+	$("li[name='onl']").css('color', 'red');
+	// [attribute!=value] 选中元素的属性不等于该值的选中
+	$("li[class!='mili']").css("font-size", '20px');
+	// [attribute^=value] 选中元素的属性值中开头为指定的值
+	$("li[class^='c']").css('border', 'dashed 1px red');
+	// [attribute$=value] 选中元素中的属性值结尾为指定的值
+	$("li[class$='i']").css("margin", '10px');
+	// [attribute*=value] 选中元素中的属性值只要包含了指定的值
+	$("li[id*='r']").css("font-style", 'italic');
+	// [attrSel1][attrSel2][attrSelN] 复合属性选择器，需要同时满足多个条件时使用。
+	$("li[id][name='onl']").css('background', 'blue');
+	
+/*
+[attribute]
+[attribute=value]
+[attribute!=value]
+[attribute^=value]
+[attribute$=value]
+[attribute*=value]
+[attrSel1][attrSel2][attrSelN]
+*/
+</script>

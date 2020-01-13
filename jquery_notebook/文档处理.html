@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>文档处理</title>
+	<script src="jquery-3.4.1.min.js"></script>
+	<style>
+		.box, .box2{
+			width: 400px;
+			height: 300px;
+			border: solid 2px red;
+			margin: 20px;
+			overflow: hidden;
+			clear: both;
+		}
+		.small{
+			width: 78px;
+			height: 78px;
+			border: 1px solid pink;
+			float: left;
+			
+		}
+		
+	</style>
+</head>
+<body>
+	<button>append</button>
+	<button>appendTo</button>
+	<button>prepend</button>
+	<button>prependTo</button>
+	<button>after</button>
+	<button>before</button>
+	<button>insertAfter</button>
+	<button>insertBefore</button>
+	<hr />
+	<div class="box">
+	</div>
+	<div class="box2">
+		
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	
+	$(function(){
+		var num = 0;
+		// append(content|fn) 在指定的标签内添加一个内容
+		$("button:first").click(function(){
+			$(".box").append("<div class='small'>" + num + "</div>");
+			num++;
+		})
+		// appendTo() 将内容添加到指定的标签当中
+		$("button:eq(1)").click(function(){
+			$("<div class='small'>" + num + "</div>").appendTo(".box");
+			num++;
+		})
+		// prepend(content|fn) 在指定的标签内添加一个内容(在已有的元素之前)
+		$("button:eq(2)").click(function(){
+			$(".box").prepend("<div class='small'>" + num + "</div>");
+			num++;
+		})
+		// prepend(content|fn) 将内容添加到指定的标签当中(在已有的元素之前)
+		$("button:eq(3)").click(function(){
+			$("<div class='small'>" + num + "</div>").prependTo(".box");
+			num++;
+		})
+		// insertBefore(content)将所有选中的内容放到指定的元素前面
+		$("button:eq(7)").click(function(){
+			$('.small').insertBefore('.box2');
+			
+		})
+		// alterBefore(content)将所有选中的内容放到指定的元素后面
+		$("button:eq(6)").click(function(){
+			$('.small').insertAfter('.box2');
+			
+		})
+		// after(content|fn)插入到每个目标后的内容
+		$("button:eq(4)").click(function(){
+			$('div').after("<div class='small'>" + num + "</div>");
+		})
+		// after(content|fn)插入到每个目标前的内容
+		$("button:eq(5)").click(function(){
+			$('div').before("<div class='small'>" + num + "</div>");
+		})
+	})
+	
+	
+/*
+文档处理
+内部插入
+append(content|fn)
+appendTo(content)
+prepend(content|fn)
+prependTo(content)
+外部插入
+after(content|fn)
+before(content|fn)
+insertAfter(content)
+insertBefore(content)
+包裹
+wrap(html|ele|fn)
+unwrap()
+wrapAll(html|ele)
+wrapInner(html|ele|fn)
+替换
+replaceWith(content|fn)
+replaceAll(selector)
+删除
+empty()
+remove([expr])
+detach([expr])
+复制
+clone([Even[,deepEven]])
+*/
+</script>

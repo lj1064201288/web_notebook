@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>队列</title>
+	<script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<button>队列</button>
+	<button>清空队列</button>
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		// queue() 添加或者查看队列
+		$('button:first').click(function(){
+			$(document).queue('struct',function(){
+				console.log('三大结构');
+			}).queue('struct',function(){
+				console.log("顺序结构");
+			}).queue('struct',function(){
+				console.log("选择结构");
+			}).queue('struct',function(){
+				console.log('循环结构');
+			});
+			
+		});
+		
+	});
+//	$(function(){
+//		//queue() 添加或者查看队列
+//		$('button:first').click(function(){
+//			
+//			//自定义的一个队列（自动队列）
+//			$(document).queue('mylife',function(){
+//				console.log('脱裤子');
+//			}).queue('mylife',function(){
+//				console.log('蹲下');
+//			}).queue('mylife',function(){
+//				console.log('拉屎');
+//			}).queue('mylife',function(){
+//				console.log('擦屁股');
+//			}).queue('mylife',function(){
+//				console.log('提裤子');
+//			});
+//		
+//		
+//			//查看刚刚添加的队列
+//			console.log($(document).queue('mylife'));
+//			
+//			
+//		});
+//		
+//		
+//		$('button:last').click(function(){
+//			//清空函数
+//			$(document).clearQueue('mylife');
+//			console.log($(document).queue('mylife'));
+//		
+//		});
+//		
+//		
+//		
+//	});
+	
+
+/*
+队列控制
+queue(e,[q])
+dequeue([queueName])
+clearQueue([queueName])
+插件机制
+jQuery.fn.extend(object)
+jQuery.extend(object)
+多库共存
+jQuery.noConflict([ex])
+
+*/
+</script>

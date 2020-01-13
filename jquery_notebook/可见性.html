@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>可见性</title>
+	<script src="jquery-3.4.1.min.js"></script>
+	<style type="text/css">
+		div{
+			display: none;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="asd">
+		床前明月光
+	</div>
+	
+	<form action="#">
+		<input type="text" name="email">邮箱
+		<input type="hidden" name="id">id
+	</form>
+	<table>
+		<tr>
+			<td>Value</td>
+			<td>Value2</td>
+		</tr>
+		<tr>
+			<td>Value</td>
+			<td>Value2</td>
+		</tr>
+	</table>
+	
+
+
+</body>
+</html>
+<script type="text/javascript">
+	$(function(){
+		// 查看所有不可见元素
+		$("div:hidden").html("疑似地上霜");
+		$("tr:hidden");
+		// 查看所有可见元素
+		console.log($(":visible"));
+	});
+	
+</script>

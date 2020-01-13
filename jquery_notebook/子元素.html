@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>子元素</title>
+	<script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<span id="language">
+		<div>Python</div>
+		<p>Java</p>
+		<div>HTML</div>
+		<div>Go</div>
+		<p>Javascript</p>
+		<div>C</div>
+		<div>C++</div>
+		<div>
+			<em>C#</em>
+		</div>
+		<div>CSS</div>
+		<div>
+			<p>web</p>
+			<em>HTML</em> <br />
+			<em>CSS</em> <br/>
+			<em>Javascript</em>
+		</div>
+	</span>
+</body>
+</html>
+<script type="text/javascript">
+	// 选择子元素共分为四步:
+	// 1.选中页面中所有的指定元素
+	// 2.选中第一步中选定的元素的父元素
+	// 3.选中第二步中选定的元素的第一个子元素
+	// 4.判断第三部中的选中的元素是否存在
+
+	$(function(){
+		// :first-child 选中指定的元素的第一个子元素
+		// $('div:first-child').css({color:"red", border: 'solid 1px green'});
+		// :last-child 选中指定的元素的最后一个元素
+		// $("div:last-child").css("background", 'orange');
+		// :nth-child 选中元素中的子元素指定的位置元素(就是子元素中第二个元素满足一下条件后被选中)
+		//$("p:nth-child(2)").css('color', 'green');
+		// :only-child 选中的元素只能是在父元素中唯一的(如果父元素中有多个子元素，不可以被选取)
+		//$("em:only-child").css({fontWeight: "bold"});
+		// :nth-last-child(n)选中指定的元素中的倒数的第n个元素
+		// $("div:nth-last-child(3)").html('c');
+		// of-type系列
+		// 1. 选中页面中指定的元素
+		// 2. 选中第一步中选中的元素的父元素
+		// 3. 选中所有父元素的指定子元素组合
+		// 4. 在第三步的元素组合中选取第一个子元素
+		// :first-of-type 选中父元素中指定类型中的第一个元素
+		$("div:first-of-type").css("border", 'dashed 3px green');
+		// :last-of-type 选中父元素中指定类型中的最后一个元素
+		$('div:last-of-type').css('border', 'dashed 2px pink');
+		// nth-of-type() 选中父元素中指定类型中的制定中的第N个元素
+		$("div:nth-of-type(3)").css({background: "red", fontWeight: "bold"});
+		// nth-last-of-type() 选中父元素中指定类型中的指定中的倒数第N个元素
+		$('div:nth-last-of-type(3)').css({color: "orange", fontStyle: 'italic'});
+		// only-of-type() 选中的元素只能是在父元素中唯一的类型元素（如果里面有多个元素，但是只有一个指定的元素，也可以选取）
+		$("p:only-of-type").css("background", 'purple');
+		
+	})
+	
+	
+/*
+子元素
+:first-child
+:first-of-type1.9+
+:last-child
+:last-of-type1.9+
+:nth-child
+:nth-last-child()1.9+
+:nth-last-of-type()1.9+
+:nth-of-type()1.9+
+:only-child
+:only-of-type1.9
+*/
+</script>

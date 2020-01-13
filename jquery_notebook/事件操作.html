@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>事件操作</title>
+	<style>
+		#box{
+			width: 300px;
+			height: 300px;
+			border: solid red 1px;
+		}
+	</style>
+	<script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<!--	<div id="box"></div>-->
+	<button>显示</button>
+	<button>隐藏</button>
+	<button>切换</button>
+	<hr />
+	<img src="./timg.jpg" alt="" name="img">
+</body>
+</html>
+<script>
+	// on() 类似于addEventListen()
+	//$("#box").on("click", function(){
+//		$("#box").css("background", 'red');
+	//})
+	// off() 类似以removeEventListen()
+	//$("#box").off("click");
+	// on() off() 的实例
+	/*$("#box").on("mouseover", function(){
+		$("#box").css("background", 'yellow');
+	})
+	$("#box").on("mouseout", function(){
+		$("#box").css("background", 'green');
+	})
+	setTimeout(function(){
+		$("#box").off()
+	}, 5000
+	*/
+	// ONE() 只会执行一次事件
+	//$("#box").one("mouseover", function(){
+		//		 $(this).css("background", 'red');
+			//	 })
+	
+	// hover() 需要两个函数参数，直接执行移进与移出操作
+	// $("#box").hover(function(){
+	//	$(this).css("background", 'yellow');
+	// }, function(){
+	//	$(this).css("background", 'green');
+	// })
+	
+	// toggle() 实现图片显示隐藏切换
+	/*$("button:contains(显示)").click(function(){
+		$("img").show(3000);
+	})
+	$("button:contains(隐藏)").click(function(){
+		$("img").hide(3000);
+	})*/
+	/*isShow = true;
+	$("button:contains(切换)").click(function(){
+		if(isShow){
+			$("img").hide(3000);
+			isShow = false;
+		}else{
+			$("img").show(3000);
+			isShow = true;
+		}
+	})*/
+	$("button:contains(切换)").click(function(){
+		$('img').toggle(2000);
+	})
+	
+	
+/*
+事件处理
+on(eve,[sel],[data],fn)1.7+
+off(eve,[sel],[fn])1.7+
+bind(type,[data],fn)3.0-
+one(type,[data],fn)
+trigger(type,[data])
+triggerHandler(type, [data])
+unbind(t,[d|f])3.0-
+事件委派
+live(type,[data],fn)1.7-
+die(type,[fn])1.7-
+delegate(s,[t],[d],fn)3.0-
+undelegate([s,[t],fn])3.0-
+事件切换
+hover([over,]out)
+toggle([spe],[eas],[fn])1.9*
+事件
+blur([[data],fn])
+change([[data],fn])
+click([[data],fn])
+dblclick([[data],fn])
+error([[data],fn])1.8-
+focus([[data],fn])
+focusin([data],fn)
+focusout([data],fn)
+keydown([[data],fn])
+keypress([[data],fn])
+keyup([[data],fn])
+mousedown([[data],fn])
+mouseenter([[data],fn])
+mouseleave([[data],fn])
+mousemove([[data],fn])
+mouseout([[data],fn])
+mouseover([[data],fn])
+mouseup([[data],fn])
+resize([[data],fn])
+scroll([[data],fn])
+select([[data],fn])
+submit([[data],fn])
+*/
+</script>

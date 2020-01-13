@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>过滤和串联</title>
+	<script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<ol>
+		<li class="yi">2012年， 第一桶金!</li>
+		<li class="year">2013年， <i>没有什么</i></li>
+		<li class="year">2014年， 年底离职了</li>
+		<li class="yang">2015年， 到了青羊区</li>
+		<li class="year">2016年， <em>回到了龙泉</em></li>
+		<li>2017年， 来到高新区</li>
+		<li class="year">2018年， 找到了目标</li>
+		<li class="qiyi">2019年， <i>在爱奇艺工作</i></li>
+	</ol>
+	<div class="poem">
+		<p>静夜思</p>
+		<p>春晓</p>
+		<p>水调歌头</p>
+		<div>三字经</div>
+		<div>道德经</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	// eq()筛选出指定位置的元素进行操作
+	//$('ol>li').css({border: "dashed 2px green", margin: "10px 0"})
+	//		.eq(3).css('color', 'red');
+	// first()筛选出指定的元素的第一个元素
+	//$('ol>li').css({border: "dashed 2px green", margin: "10px 0"})
+		//.first().css('color', 'red');
+	// last()筛选出指定的元素的最后一个元素
+	//$('ol>li').css({border: "dashed 2px green", margin: "10px 0"})
+		//.last().css('color', 'red');
+	// hasClass(class)判断元素里面是有class属性，并且满足class的条件，返回布尔值
+	//var result = $("li").eq(0).hasClass('yi');
+	//console.log(result);
+	// filter()筛选出与指定表达式匹配的元素集合。这个方法用于缩小匹配的范围。用逗号分隔多个表达式
+	//$("li").css('border', 'dashed 2px blue')
+		//.filter(".year:eq(2)").css('margin', '10px 0px');
+	//filter()回调函数的使用方法
+	/*
+	$('li').css({border: 'dashed 2px red', margin: '10px 0px'})
+		.filter(function(index, node){
+		if ($(node).hasClass('year')){
+			$(node).css('background', 'red');
+		}
+		else if($(node).hasClass("yi")){
+			$(node).css('background', 'cyan');
+		}
+		else{
+			$(node).css('color', 'red');
+		}
+	})
+	*/
+	// is 根据选择器、DOM元素或 jQuery 对象来检测匹配元素集合，如果其中至少有一个元素符合这个给定的表达式就返回true。如果没有元素符合，或者表达式无效，都返回'false'。
+	//var result = $('li:eq(3)').css('border', 'solid 1px red').is(".yang");
+	//console.log(result);
+	// map() 将一组元素转换成其他数组
+	/*
+	var color = ['red', 'yellow', 'blue', 'green', 'cyan', 'orange', 'purple', 'pink']
+	var index = 0
+	$('li').map(function(){
+		$(this).css("background", color[index]);
+		index++;
+	})
+	*/
+	// has()保留包含特定后代的元素，去掉那些不含有指定后代的元素。根据子元素选择是否包含操作父元素
+	//$("li").css('border', 'dashed green 1px')
+		//.has('i').css('color', 'red');
+	// not() 从匹配元素的集合中删除与指定表达式匹配的元素
+	//$('li').css('border', 'dashed blue 1px')
+		//.not('.year').css('background', 'pink');
+	// slice() 切片，从指定位置到指定位置进行选取操作
+	//$('li').css('border', 'solid red 2px')
+		//.slice(2,4).css('color', 'orange');
+	
+	// 串联
+	// add()把与表达式匹配的元素添加到jQuery对象中。这个函数可以用于连接分别与两个表达式匹配的元素结果集。
+	// $('.year').css('border', 'dashed 1px red')
+		//.add($("li[class^='y']")).css('color', 'pink');
+	// addBack()添加堆栈中元素集合到当前集合，一个选择性的过滤选择器。
+	//$('.yang').css('border', 'dashed 2px green')
+		//.nextAll().css('background', 'purple')
+		//.addBack().css('color', 'cyan');
+	
+	//end()回到最近的一个"破坏性"操作之前。即，将匹配的元素列表变为前一次的状态。
+	//$('li').css('border', 'solid green 2px')
+		//.eq(2).css('background', 'purple')
+		//.end()
+		//.css('color', 'pink');
+	
+	// contents()查找匹配元素内部所有的子节点（包括文本节点）。如果元素是一个iframe，则查找文档内容
+	$('.poem').css('border', 'dashed 2px green')
+		.contents().css('color', 'red');
+/*
+过滤
+eq(index|-index)
+first()
+last()
+hasClass(class)
+filter(expr|obj|ele|fn)
+is(expr|obj|ele|fn)
+map(callback)
+has(expr|ele)
+not(expr|ele|fn)
+slice(start,[end])
+串联
+add(e|e|h|o[,c])1.9*
+andSelf()1.8-
+addBack()1.9+
+contents()
+end()
+*/
+</script>
