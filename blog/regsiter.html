@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Comptible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>用户注册</title>
+	<link rel="stylesheet" href="../bootstrap_notebook/css/bootstrap.min.css">
+	<script src="../bootstrap_notebook/js/jquery-3.4.1.min.js"></script>
+	<script src="../bootstrap_notebook/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<div class="navbar navbar-default">
+				<div class="navbar-header">
+					<a href="#"><img src="./logo.png" alt="加载失败" title="首页" width="50" height="50"></a>
+<!--					ss<a href="#" class="navbar-brand">Home</a>-->
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="#">新闻</a></li>
+					<li><a href="#">贴吧</a></li>
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">外链
+						<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li class="dropdown-header">购物</li>
+							<li><a href="#">淘宝</a></li>
+							<li><a href="#">京东</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">博客</li>
+							<li><a href="#">CSDN</a></li>
+							<li><a href="#">博客园</a></li>
+						</ul>
+					</li>
+					<li><a href="#">音乐</a></li>
+				</ul>
+			</div>
+			<form action="#" name="myform" method="post" class="form-horizontal" role="form">
+				<div class="form-group">
+					<label for="username" class="col-sm-2 control-label">用户名:</label>
+					<div class="col-sm-6">
+						<input type="text" id="username" name="username" class="form-control" placeholder="请输入用户名">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="pwd" class="col-sm-2 control-label">密&nbsp;&nbsp;&nbsp;码:</label>
+					<div class="col-sm-6">
+						<input type="password" id="pwd" name="pwd" class="form-control" placeholder="请输入密码">
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="email" class="col-sm-2 control-label">邮&nbsp;&nbsp;箱：</label>
+					<div class="col-sm-6">
+						<input type="email" id="email" name="email" class="form-control" placeholder="请输入您的邮箱">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-offset-2 col-sm-10" align="center">
+						<button type="submit" class="btn btn-success btn-sm btn-block" style="width: 720px">注册</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>for循环操作</title>
+	<script src="static/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<!--循环数字-->
+		<ul >
+			<li v-for="count in 10">
+				{{count}}
+			</li>
+		</ul>
+		<!--循环列表-->
+		<ul >
+			<li v-for="(item, idx) in names">
+				{{item}} ======> {{idx}}
+			</li>
+		</ul>
+		<!--循环对象-->
+		<ul>
+			<li v-for="(value, key) in info">{{key}}====>{{value}}</li>
+		</ul>
+		<!--循环列表对象-->
+		<!--如果没有绑定key值就会就地复用， 如果选择了某个选项，添加后会被选到新添加的选项上，绑定了就不会-->
+		<ul>
+			<li v-for="(item, idx) in infos" :key="item.uid">
+				<input type="checkbox">{{item.uid}}====>{{item.name}}====>{{item.age}}====>{{item.height}}
+			</li>
+			<input type="button" value="添加数据" @click="add">
+		</ul>
+		
+	</div>
+</body>
+</html>
+<script>
+	var vm = new Vue({
+		el: "#app",
+		
+		data: {
+			names: ['刘进', '王小蝶', '阳志波', '刘琼英'],
+			info: {
+				name:'刘进',
+				age: '24',
+				height: '173cm',
+			},
+			infos: [
+				{
+					uid: 1,
+					name: '刘进',
+					age: '24',
+					height: '173cm'
+				},
+				{
+					uid: 2,
+					name: '王小蝶',
+					age: '25',
+					height: '165cm',
+				},
+				{
+					uid: 3,
+					name: '阳志波',
+					age: '25',
+					height:'178cm',
+				},
+				{
+					uid: 4,
+					name: '刘琼英',
+					age: '46',
+					height: '160cm'
+				}
+			]
+		},
+		methods:{
+			add: function(){
+				var newObj = {
+					name: '张三',
+					age: 40,
+					height: '168cm'
+				}
+				this.infos.splice(0, 0, newObj)
+			}
+		}
+		
+	})
+</script>

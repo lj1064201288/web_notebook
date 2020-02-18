@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>demo</title>
+	<script src="static/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<!--插入表达书-->
+		{{msg}}
+		<input type="button" value="点我" @click="modify">
+		<input type="text" v-model="data">
+		<input type="button" value="查看信息" @click="show">
+		
+	</div>
+</body>
+</html>
+<script>
+	// 新建一个Vue实例
+	var vm = new Vue({
+		el:'#app',
+		// 模型层数据
+		data: {
+			msg: '测试信息',
+			data: '123456',
+		},
+		// 所有页面需要使用到的方法
+		methods:{
+			modify:function(){
+				this.msg = '修改测试信息';
+			},
+			show:function(){
+				alert(this.data)
+			}
+		}
+	})
+</script>

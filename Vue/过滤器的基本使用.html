@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>过滤器的基本使用</title>
+	<script src="static/vue.js"></script>
+</head>
+	<div id="app">
+		<p>{{ msg | msgForm('单纯', '猥琐') }}</p>
+	</div>
+<body>
+</body>
+</html>
+
+<script>
+	// 定义全局过滤器
+	Vue.filter("msgForm", function(msg, arg1, arg2){
+		const reg = RegExp('单纯', 'g')
+		var msg = msg.replace(reg, arg2)
+		return msg
+	})
+	
+	var vm = new Vue({
+		el: "#app",
+		data: {
+			msg: '我是一个单纯的孩子，单纯的想一张纸，单纯如清水',
+		},
+		// 私有过滤器, 当有两个过滤器的时候，会使用局部变量的过滤器
+		filters:{
+			msgForm:function(msg, arg1, arg2){
+				var reg = RegExp(arg1, 'g')
+				var msg = msg.replace(reg, arg2+"w猥琐")
+				return msg
+			}
+		}
+	})
+</script>

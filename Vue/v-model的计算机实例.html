@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>计算机实例</title>
+	<script src="static/vue.js"></script>
+	<style>
+		
+	</style>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="n1" @input="dataClick">
+		<select v-model="opt" @change="dataClick">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+		<input type="text" v-model="n2" @input="dataClick">
+		=
+		<input type="text" v-model="result">
+	</div>
+	
+</body>
+</html>
+<script>
+	const vm = new Vue({
+		el:"#app",
+		data: {
+			n1: "",
+			n2: "",
+			result: "",
+			opt: '+'
+		},
+		methods:{
+			dataClick(){
+				switch(this.opt){
+					case "+":
+						this.result = parseInt(this.n1) + parseInt(this.n2)
+						break;
+					case "-":
+						this.result = parseInt(this.n1) - parseInt(this.n2)
+						break;
+					case "*":
+						this.result = parseInt(this.n1) * parseInt(this.n2)
+						break
+					case "/":
+						this.result = parseInt(this.n1) / parseInt(this.n2)
+						break
+					default:
+						break
+				}
+			}
+		}
+	})
+</script>

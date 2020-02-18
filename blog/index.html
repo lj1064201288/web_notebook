@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	<meta http-equiv="X-UA-Comptible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>导航条</title>
+	<link rel="stylesheet" href="../bootstrap_notebook/css/bootstrap.min.css">
+	<script src="../bootstrap_notebook/js/jquery-3.4.1.min.js"></script>
+	<script src="../bootstrap_notebook/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		#fixld{
+			display:inline-block;
+			position: fixed;
+			width: 50px;
+			height: 80px;
+			left: 90%;
+			top: 70%;
+			background: #781D1D;
+			
+		}
+		
+	</style>
+<!--	<script src="../jquery_notebook/jquery-3.4.1.min.js"></script>-->
+</head>
+<body>
+	<div class="container" role="navigation">
+		<div class="row">
+			<div class="navbar navbar-default">
+				<div class="navbar-header">
+					<a href="#"><img src="./logo.png" alt="加载失败" title="首页" width="50" height="50"></a>
+<!--					ss<a href="#" class="navbar-brand">Home</a>-->
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="#">新闻</a></li>
+					<li><a href="#">贴吧</a></li>
+					<li>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">外链
+						<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li class="dropdown-header">购物</li>
+							<li><a href="#">淘宝</a></li>
+							<li><a href="#">京东</a></li>
+							<li class="divider"></li>
+							<li class="dropdown-header">博客</li>
+							<li><a href="#">CSDN</a></li>
+							<li><a href="#">博客园</a></li>
+						</ul>
+					</li>
+					<li><a href="#">音乐</a></li>
+				</ul>
+				<form action="#" class="navbar-form navbar-right">
+					<div class="form-group">
+						<input type="text" class="form-control" name="" placeholder="Search">
+					</div>
+					<button type="button" class="btn btn-primary">Search</button>
+				</form>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h4>
+						<a href="#">HTML</a>
+						</h4>
+					</li>
+					<li class="list-group-item">
+						<h4>
+							<a href="#">Python</a>
+						</h4>
+					</li>
+					<li class="list-group-item">
+						<h4>
+							<a href="#">Java</a>
+						</h4>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-9">
+				<div class="panel panel-default">
+					{% for post in posts %}
+					<div class="panel-heading">
+						<h5 class="list-group-item-heading"><a href="#">{{post.title}}</a></h5>
+					</div>
+					<div class="panel-body">
+						{{post.desc}}
+					</div>
+					<div class="panel-footer">
+						作者: {{post.owner}}
+						发布时间: {{post.created_time}}
+					</div>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="zhibiao">
+		<div id="fixld">
+			<ul class="list-group">
+				<li class="list-group-item">
+					<a href="body">顶部</a>
+				</li>
+				<li class="list-group-item">
+					<a href="#">底部</a>
+				</li>
+				<li class="list-group-item">
+					<a href="#">锚点</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</body>
+</html>

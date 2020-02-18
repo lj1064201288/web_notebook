@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>按键修饰符</title>
+	<script src="static/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="msg" @keyup.enter="add">
+		<input type="text" @keyup.f2="change">
+		
+	</div>
+</body>
+</html>
+<script>
+	Vue.config.keyCodes.xx = 113;
+	
+	var vm = new Vue({
+		el: "#app",
+		data:{
+			msg: '我是谁'
+		},
+		methods:{
+			add: function(){
+				this.msg = '我是谁~!~~~~~~~~~~~~~~'
+			},
+			change: function(){
+				console.log("change	");
+			}
+			
+		}
+	})
+	
+</script>

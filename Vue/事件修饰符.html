@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>事件修饰符</title>
+	<script src="static/vue.js"></script>
+	<style>
+		#red{
+			background: red;
+			width: 600px;
+			height: 600px;
+		}
+		#green{
+			background: green;
+			width: 400px;
+			height: 400px;
+		}
+		#yellow{
+			background: yellow;
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div id="red" @click="redClick">
+			<div id="green" @click.self="greenClick">
+<!--				<div id="yellow" @click.stop="oneClick"></div>-->
+				<div id="yellow" @click.once="oneClick"></div>
+			</div>
+		</div>
+		<a href="http://www.baidu.com" @click.prevent.once="aClick">百度</a>
+	</div>
+	
+</body>
+</html>
+<script>
+	// stop 阻止冒泡事件
+	// prevent 阻止默认事件
+	// capture 添加事件监听使用捕获事件
+	// self 只在当前的元素本身的事件触发
+	// once 只触发一次事件
+	const vm = new Vue({
+		el: '#app',
+		methods:{
+			oneClick(){
+				console.log("oneClick")
+			},
+			greenClick(){
+				console.log("greenClick")
+			},
+			redClick(){
+				console.log('redClick')
+			},
+			aClick(){
+				console.log('aClick')
+			}
+		}
+	})
+</script>

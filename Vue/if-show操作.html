@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>if-show操作</title>
+	<script src="static/vue.min.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p v-if="flag">床前明月光</p>
+		<p v-else>疑是地上霜</p>
+		<p v-show="flag">举头望明月</p>
+		<input type="button" value="改变" @click="show">
+	</div>
+	
+</body>
+</html>
+<script>
+	// if如果满足条件不成立的话，是不会再页面中进行渲染的，show不管是否满足条件都是会渲染，只是不满足条件时改变了属性display:none
+	var vm = new Vue({
+		el: "#app",
+		data:{
+			flag: false,
+		},
+		methods:{
+			show: function(){
+				this.flag = true;
+			}
+		}
+	})
+</script>
