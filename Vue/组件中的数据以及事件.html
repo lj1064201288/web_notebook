@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件中的数据以及事件</title>
+    <script src="static/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <login></login>
+        <login></login>
+    </div>
+    <template id="login">
+        <div>
+            <p v-html="count"></p>
+            <input type="button" value="增加" @click="addNum">
+        </div>
+    </template>
+</body>
+</html>
+<script>
+    var obj = {
+        count: 0
+    }
+    Vue.component('login', {
+        template: '#login',
+        // 在组件当中data必须是一个函数，因为如果使用的是对象，会报错
+        data: function(){
+            // 组件中的data的function返回的必须是一个独立的对象, 否则使用改变对象的原型，倒置数据全部更改
+            // 错误的写法
+            // return obj
+            // 正确的写法
+            // 注意理解prototype
+            return {
+                count: 0
+            }
+        },
+        methods:{
+            addNum(){
+                this.count++
+            }
+        },
+        created:function () {
+            console.log('组件中的data的function返回的必须是一个独立的对象, 否则使用改变对象的原型，倒置数据全部更改')
+        }
+    })
+
+    const vm = new Vue({
+        el: '#app',
+        data:{
+
+        },
+        methods:{
+
+        },
+    })
+
+</script>

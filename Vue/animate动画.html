@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>animate动画</title>
+    <script src="./static/vue.js"></script>
+    <link rel="stylesheet" href="./static/animate.css-master/animate.min.css">
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="点击" @click="flag = !flag">
+        <transition
+                enter-active-class="animated slideOutDown"
+                leave-active-class="animated bounceOutRight"
+        >
+            <p v-if="flag" style="background: red; width: 100px; height: 100px; text-align: center">
+                这是文本
+            </p>
+        </transition>
+    </div>
+</body>
+</html>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data:{
+            flag: true
+        },
+    })
+
+</script>

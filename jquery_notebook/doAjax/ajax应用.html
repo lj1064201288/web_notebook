@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax应用</title>
+    <script src="../jquery-3.4.1/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <input type="button" value="Ajan应用" id="button">
+</body>
+</html>
+<script>
+    $(function () {
+        $('#button').click(function () {
+            $.ajax({
+                type: 'get',
+                url: './test.json',
+                dataType: 'json',
+                success: function (data) {
+                    var name = data.name
+                    document.body.innerHTML = data.name
+                }
+            })
+        })
+
+    })
+
+</script>

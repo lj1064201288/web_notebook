@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>评论案例</title>
+    <link rel="stylesheet" href="../bootstrap_notebook/css/bootstrap.min.css">
+    <script src="static/vue.js"></script>
+</head>
+<body>
+    <div class="container">
+        <comment @func="add"></comment>
+        <div class="row">
+            <ul class="list-group">
+                <li class="list-group-item" v-for="item in list" :key="item.id">
+                    <span class="badge">评论人:{{item.user}}</span>
+                    {{item.content}}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <template id="comment">
+        <div class="row">
+            <div class="panel panel-primary">
+                <div class="panel panel-heading">
+                    评论
+                </div>
+                <div class="panel panel-body">
+                    <label for="user" class="control-label">User:</label>
+                    <input type="text" id="user" name="user" class="form-control" v-model="user">
+                    <label for="content" class="control-label">Content:</label>
+                    <input type="text" id="content" class="form-control" name="content" v-model="content" @keyUp.enter="addComment">
+                    <input type="button" value="发表评论" class="btn btn-danger" @click="addComment">
+                </div>
+            </div>
+        </div>
+    </template>
+
+</body>
+</html>
+<script>
+    const vm = new Vue({
+        el: ".container",
+        data:{
+            list: [
+                {
+                    id: Date.now(),
+                    user: '宫商角徵羽',
+                    content: 'This\'s good'
+                },
+                {
+                    id: Date.now(),
+                    user: 'Battle symphony',
+                    content: '很棒~~~ Nice!'
+                },
+                {
+                    id: Date.now(),
+                    user: 'wd',
+                    content: 'This is a very good object'
+                }
+            ]
+        },
+        components:{
+            comment:{
+                template: '#comment',
+                data:function(){
+                    return {
+                        user: '',
+                        content: ''
+                    }
+                },
+                methods:{
+                    addComment:function () {
+                        const obj = {
+                            id: Date.now(),
+                            user: this.user,
+                            content: this.content,
+                        }
+
+                        this.user = this.content = ''
+                        this.$emit('func', obj)
+                    }
+                }
+            }
+        },
+        methods:{
+            add:function (obj) {
+                    this.list.push(obj)
+            }
+        }
+
+    })
+
+
+</script>

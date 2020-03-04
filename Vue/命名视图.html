@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>命名视图</title>
+    <link rel="icon" href="./static/timg.gif">
+    <script src="static/vue.js"></script>
+    <script src="static/vue-router.js"></script>
+    <style>
+        .index{
+            width: 100%;
+            height: auto;
+            background: cyan;
+        }
+
+        .body{
+            width: 100%;
+            height: 500px;
+            background: #0E0E6D;
+        }
+        .footer{
+            width: 100%;
+            height: auto;
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <router-view class="index"></router-view>
+        <router-view name="body" class="body"></router-view>
+        <router-view name="footer" class="footer"></router-view>
+    </div>
+    <template id="index">
+        <div>
+            <h1>Index</h1>
+        </div>
+    </template>
+    <template id="body">
+        <div>
+            <h1>Body</h1>
+        </div>
+    </template>
+    <template id="footer">
+        <div>
+            <h1>Footer</h1>
+        </div>
+    </template>
+</body>
+</html>
+<script>
+    var index = {
+        template: '#index'
+    }
+
+    var body = {
+        template: '#body'
+    }
+    var footer = {
+        template: '#footer'
+    }
+    const router = new VueRouter({
+        routes: [
+            {
+                path: '/',
+                // component是一个对象，而不是数组.....
+                components: {
+                    default: index,
+                    body: body,
+                    footer: footer
+                }
+
+            }
+        ]
+    })
+
+    const vm = new Vue({
+        el: '#app',
+        data: {},
+        methods:{},
+        // 给路由进行挂载
+        router
+    })
+
+
+</script>

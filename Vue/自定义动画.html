@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义动画</title>
+    <script src="static/vue.js"></script>
+    <style>
+        /*自定义动画只需要将transition里面增加一个name属性，然后将v改成name的内容就可以实现了*/
+        .my-enter, .my-leave-to{
+            transform: translateX(100px);
+            opacity: 0.5;
+        }
+
+        .my-enter-active, .my-leave-active{
+            transition: all 2s ease;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="点我" @click="flag = !flag">
+        <transition name="my">
+            <p v-if="flag">
+                这是文本信息
+            </p>
+        </transition>
+    </div>
+</body>
+</html>
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data:{
+            flag: true
+        },
+        methodes:{
+
+        }
+    })
+
+</script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父组件使用子组件中的值</title>
+    <script src="static/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <!--在使用组件的时候使用emit中的第一个值进行事件触发指定父组件执行的方法-->
+        <child-component @func="change"></child-component>
+    </div>
+    <template id="childComponent">
+        <div>
+            {{message}}
+            <input type="button" value="向父组件发送数据" @click="send">
+        </div>
+    </template>
+</body>
+</html>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+          msg: '这是父组件的值'
+        },
+        methods:{
+            change:function (msg) {
+                // 将父组件中的值改为子组件的值
+                this.msg = msg
+            }
+        },
+        components:{
+            childComponent:{
+                template: "#childComponent",
+                data:function () {
+                    // 第一步创建子组件的值
+                    return {
+                        message: '这是子组件中的值'
+                    }
+                },
+                methods:{
+                    // 使用子组件中的方法将子组件中的值传上去
+                    send: function () {
+                        this.$emit('func', this.message)
+                    }
+                }
+            },
+
+        }
+
+    })
+
+</script>

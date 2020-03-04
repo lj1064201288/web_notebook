@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件的切换2</title>
+    <script src="static/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="切换" @click="toggle">
+        <!--使用component +:is可以多变 灵活 扩展性也强-->
+        <component :is="comName"></component>
+    </div>
+    <template id="login">
+        <div>登录组件:
+            <input type="text" placeholder="请输入用户名">
+        </div>
+    </template>
+    <template id="regsiter">
+        <div>
+            注册组件:
+            <input type="text" placeholder="请输入用户名">
+        </div>
+    </template>
+</body>
+</html>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data:{
+            comName: 'login'
+        },
+        methods:{
+            toggle: function () {
+                if (this.comName === 'login'){
+                    this.comName = 'regsiter'
+                }else{
+                    this.comName = 'login'
+                }
+            }
+        },
+        components: {
+            login:{
+                template: '#login'
+            },
+            regsiter:{
+                template: '#regsiter'
+            }
+        }
+    })
+</script>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由的导航</title>
+    <script src="static/vue.js"></script>
+    <script src="static/vue-router.js"></script>
+    <link rel="stylesheet" href="../bootstrap_notebook/css/bootstrap.min.css">
+</head>
+<body>
+    <div id="app">
+        <div>
+            <router-link tag="button" to="/login">登录组件</router-link>
+            <router-link tag="button" to="/register">注册组件</router-link>
+        </div>
+
+        <div>
+            <router-view></router-view>
+        </div>
+    </div>
+    <template id="login">
+        <div>
+            <h1>登录组件:</h1>
+            <input type="text" placeholder="请输入用户名">
+        </div>
+    </template>
+    <template id="register">
+        <div>
+            <h1>注册组件:</h1>
+            <input type="text" placeholder="请输入用户名">
+        </div>
+    </template>
+
+</body>
+</html>
+<script>
+    const router = new VueRouter({
+        // 默认为hash， 可以设置为history模式，但是如果是history的话是不能刷新的， 不推荐使用
+        mode: 'hash',
+        routes:[
+            {
+                path: '/',
+                redirect: '/login'
+            },
+            {
+                path: '/login',
+                component:{
+                    template:'#login',
+                },
+
+            },
+            {
+                path: '/register',
+                component:{
+                    template: '#register'
+                }
+            }
+        ],
+        linkActiveClass: 'btn btn-primary'
+    })
+
+    const vm = new Vue({
+        el: '#app',
+        data:{},
+        methods:{},
+        components:{
+            login:{
+                template: '#login',
+            },
+            register:{
+                template: '#register'
+            }
+        },
+        router: router
+    })
+
+</script>

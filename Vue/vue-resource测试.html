@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script src="static/vue.js"></script>
+	<script src="Nodejs/nodejs/vue-resource/dist/vue-resource.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="button" value="点我" @click="show">
+	</div>
+</body>
+</html>
+<script>
+	const vm = new Vue({
+		el: '#app',
+		data:{
+			
+		},
+		methods:{
+			show: function(){
+				this.$http.get("https://www.baidu.com")
+					.then(function(res){
+						if (res.body && res.body.status == 0){
+							console.log(res.body)
+						}
+				})
+			}
+		}
+	})
+</script>

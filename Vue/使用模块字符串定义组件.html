@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>使用模块字符串定义组件</title>
+    <script src="static/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="切换" @click="flag=!flag">
+        <mylogin v-if="flag"></mylogin>
+        <myregister v-else></myregister>
+    </div>
+    <template id="login">
+        <div>
+            登录组件:
+            <input type="text" placeholder="请输入用户名">
+        </div>
+    </template>
+    <template id="register">
+        <div>
+            注册组件:
+            <input type="text" placeholder="请输入用户名">
+        </div>
+    </template>
+</body>
+</html>
+<script>
+    const login = Vue.extend({
+        template: '#login'
+    });
+    const register = Vue.extend({
+        template: '#register'
+    })
+    // 使用模块化字符串定义组件
+    Vue.component('myregister', register)
+    Vue.component('mylogin', login);
+
+    const vm = new Vue({
+        el: '#app',
+        data:{
+            flag: true
+        },
+        methods:{
+
+        }
+    })
+
+</script>

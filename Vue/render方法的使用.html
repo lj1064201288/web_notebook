@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>render方法的使用</title>
+    <script src="static/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>文本1</p>
+    </div>
+    <template id="temp1">
+        <div>
+            <p>文本2</p>
+        </div>
+    </template>
+</body>
+</html>
+<script>
+    var wb2 = {
+        template: '#temp1'
+    }
+    const vm = new Vue({
+        el: '#app',
+        data:{
+
+        },
+        methods:{
+
+        },
+        // render: function (createElement) {
+        //     return createElement(wb2)
+        // }
+        // 简洁方式
+        render: c=>c(wb2)
+    })
+
+</script>

@@ -12,14 +12,15 @@
 			// 1. 创建ajax对象
 			var xhr = new XMLHttpRequest();
 			// 2. 打开链接
-			xhr.open('get', 'three.html', true);
+			xhr.open('get', './test.json', true);
 			// 3. 发送数据	
 			xhr.send('asdasds');
 			// 4. 判断是否请求成功
 			xhr.onreadystatechange = function(){
 				if(xhr.readyState == 4){
 					if(xhr.status == 200){
-						alert(xhr.responseText);
+						var info = xhr.responseXML
+						console.log(info, typeof(info))
 					}
 				}
 			}

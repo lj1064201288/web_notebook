@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>keep-alive组件</title>
+    <script src="static/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="切换" @click="toggle">
+        <!--
+            使用keep-alive可以保存已经输入过的数据，组件的状态保持
+            include="login", 如果include前面没有冒号, 此时include只是一个属性，需要一个字符串
+            :include="login" 如果include前面加了冒号, 此时就用v-bind的方式来绑定属性，他的值如果没有加单引号修饰，会报错
+            :include="/login|regsiter/" 使用正则方式匹配
+            :include="['login', 'regsiter']" 使用数组方式匹配
+            :exclude="register" 是除了register之外的所有值都可以进行匹配
+        -->
+        <keep-alive :include="login">
+            <component :is="comName"></component>
+        </keep-alive>
+
+    </div>
+    <template id="login">
+        <div>登录组件:
+            <input type="text" placeholder="请输入用户名">
+        </div>
+    </template>
+    <template id="regsiter">
+        <div>
+            注册组件:
+            <input type="text" placeholder="请输入用户名">
+        </div>
+    </template>
+</body>
+</html>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data:{
+            comName: 'login'
+        },
+        methods:{
+            toggle: function () {
+                if (this.comName === 'login'){
+                    this.comName = 'regsiter'
+                }else{
+                    this.comName = 'login'
+                }
+            }
+        },
+        components: {
+            login:{
+                template: '#login'
+            },
+            regsiter:{
+                template: '#regsiter'
+            }
+        }
+    })
+
+</script>

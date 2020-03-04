@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插槽</title>
+    <script src="static/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <firamebox>
+            <h1 slot="header">这是头部页面</h1>
+
+            <h3 slot="footer">这是页面底部</h3>
+        </firamebox>
+        <firamebox>
+            <h1 slot="header">这是头部页面1</h1>
+            <h2 slot="main">这是内容2</h2>
+
+        </firamebox>
+        <firamebox>
+            <h2 slot="main">这是内容</h2>
+            <h3 slot="footer">这是页面底部3</h3>
+        </firamebox>
+    </div>
+    <template id="firamebox">
+        <div>
+            <header>
+                <slot name="header"></slot>
+            </header>
+            <main>
+                <slot name="main"></slot>
+            </main>
+            <footer>
+                <slot name="footer"></slot>
+            </footer>
+        </div>
+    </template>
+</body>
+</html>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {},
+        methods:{},
+        components:{
+            firamebox:{
+                template:'#firamebox',
+            }
+        }
+    })
+
+</script>

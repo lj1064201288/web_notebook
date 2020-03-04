@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>中央总线的使用</title>
+    <script src="static/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+
+        <login></login>
+        <register></register>
+    </div>
+    <template id="login">
+        <div>
+            登录组件:
+            <input type="text" placeholder="请输入用户名" v-model="msg">
+            <input type="button" value="向注册发送数据" @click="sendToRegister">
+        </div>
+    </template>
+    <template id="register">
+        <div>
+            注册组件:
+            <input type="text" v-model="name" placeholder="请输入用户名">
+        </div>
+    </template>
+</body>
+</html>
+<script>
+    // 1.声明bus中央总线
+    const bus = new Vue()
+
+    const vm = new Vue({
+        el: "#app",
+        data:{
+
+        },
+        methods:{
+
+        },
+        components:{
+            login:{
+                template: '#login',
+                data: function () {
+                    return {
+                        msg: 'lj1064201288'
+                    }
+                },
+                methods: {
+                    sendToRegister:function () {
+                        //2.创建一个中央总件，第一个为自定义名称，第二个为需要传的参数
+                        bus.$emit('getName', this.msg)
+                    }
+                }
+            },
+            register:{
+                template: '#register',
+                data:function () {
+                    return {
+                        name: 'liujin'
+                    }
+                },
+                created: function () {
+                    // 3.注册中央组件, 需要在created里面进行注册使用
+                    bus.$on('getName', (msg)=>{
+                        this.name = msg
+                    })
+                }
+            }
+        }
+    })
+
+</script>

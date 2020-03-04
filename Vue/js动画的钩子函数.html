@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js动画的钩子函数</title>
+    <script src="static/vue.js"></script>
+    <style>
+        .ball{
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!--入场, 出场动画-->
+        <transition
+                v-on:before-enter="beforeEnter"
+                v-on:enter="enter"
+                v-on:after-enter="afterEnter"
+                v-on:before-leave="beforeLeave"
+                v-on:leave="leave"
+                v-on:after-leave="afterLeave"
+                appear
+        >
+            <div class="ball" v-if="flag"></div>
+        </transition>
+
+        <input type="button" value="点我执行动画" @click="flag = !flag">
+    </div>
+</body>
+</html>
+<script>
+    const vm = new Vue({
+        el: "#app",
+        data:{
+            flag: false
+        },
+        methods: {
+            // 在动画执行之前调用
+            beforeEnter:function(el){
+                el.style.transform = 'translate(100px, 100px)'
+                el.style.opacity = 0
+            },
+            // 在动画执行时调用
+            // 使用done参数主要是回调afterEnter函数, 如果调用done， 那么就不会执行afterEnter函数
+            enter:function (el, done) {
+                // el.offsetHeight可以打开动画开关
+                el.offsetHeight
+                el.style.transform = 'translate(300px, 300px)'
+                el.style.transition = 'all 1.8s ease'
+                el.style.opacity = 1
+                el.addEventListener('transitionend', done)
+            },
+            // 在动画结束后调用
+            afterEnter:function(el){
+                // 动画结束后隐藏小红点
+                this.flag = !this.flag
+            },
+            // beforeLeave 在出场之前调用
+            beforeLeave:function (el) {
+                el.style.transform = 'translate(300px, 300px)'
+            },
+            leave: function (el, done) {
+                el.offsetHeight
+                el.style.transform = 'translate(100px, 100px)'
+                el.style.transition = 'all 1.8s ease'
+                el.style.opacity = 0
+                el.addEventListener('transitonend', done)
+            },
+            afterLeave:function(el){
+                el.style.transform = 'translate(100px, 100px)'
+                el.style.opacity = 1
+            }
+        }
+    })
+
+</script>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由的钩子函数</title>
+    <script src="static/vue.js"></script>
+    <script src="static/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <router-link to="login">登录组件</router-link>
+        <router-link to="login?name=liujin&age=18">登录组件2</router-link>
+        <router-link to="register">注册组件</router-link>
+        <div>
+            <router-view></router-view>
+        </div>
+    </div>
+    <template id="login">
+        <div>
+            <h1>登录组件:</h1>
+            <input type="text" placeholder="请输入用户名">
+        </div>
+    </template>
+    <template id="register">
+        <div>
+            <h1>注册组件:</h1>
+            <input type="text" placeholder="请输入用户名">
+        </div>
+    </template>
+</body>
+<script>
+    const router = new VueRouter({
+        routes: [
+            {
+                path: '/',
+                redirect: '/login'
+            },
+            {
+                path: '/login',
+                // 这里面的complate没有s
+                component:{
+                    // template需要写进component里面
+                    template: '#login',
+                    // 钩子函数
+                    // 在该路由进入之前执行
+                    beforeRouteEnter(to, form, next) {
+                        // 在渲染该组件的对应路由之前被cofirm前调用
+                        // 不能获取组件实例'this', 因为当钩子函数执行前， 组件实例还没有被创建
+                        console.log('在进入该路由之前执行')
+                        // 如果不调用next那么后面的钩子函数不会执行,
+                        // next可以访问指定路由
+                        //next({path:'login'})
+                        // 也可以设置为false 将不会跳转任何页面
+                        next()
+                    },
+                    beforeRouteUpdate(to, form, next){
+                        // 当路由被改变，但是该组件被复用使用的时候调用
+                        // 举例来说, 对于一个动态参数的路径, /foo/:id/, 在/foo/1与/foo/2之间跳转的时候,
+                        // 由于渲染的同一个Foo组件，因此这个组件会被复用，而这个钩子函数会被调用
+                        // 该组件可以使用'this'
+                        console.log('该组件被复用了')
+                        next()
+                    },
+                    beforeRouteLeave(to, form, next){
+                        // 导航离开该组件的对应路由时调用
+                        // 可以访问组件实例"this"
+                        console.log('离开该组件调用')
+                        next()
+                    }
+                },
+                // 这个是属于整个路由的守卫
+                beforeEnter(to, form, next){
+                    console.log('这个是属于整个路由的守卫')
+                    next()
+                },
+            },
+            {
+                path: '/register',
+                component:{
+                    template: '#register',
+                }
+
+            }
+        ],
+
+    });
+
+    // 全局守卫
+    router.beforeEach((to, from, next)=>{
+        console.log(to, 'asdasd')
+        console.log(from, 'asdasd')
+        console.log(next, 'asdasdasda')
+    })
+    const vm = new Vue({
+        el: '#app',
+        data:{},
+        methods:{},
+        // components:{
+        //     login:{
+        //         template: "#login"
+        //     },
+        //     register: {
+        //         template: '#register'
+        //     }
+        // },
+        router: router,
+    })
+
+</script>
+</html>

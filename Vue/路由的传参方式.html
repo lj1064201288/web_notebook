@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由的导航</title>
+    <script src="static/vue.js"></script>
+    <script src="static/vue-router.js"></script>
+    <link rel="stylesheet" href="../bootstrap_notebook/css/bootstrap.min.css">
+</head>
+<body>
+<div id="app">
+    <div>
+        <router-link tag="button" to="/login/liujin/18">登录组件</router-link>
+        <!--使用绑定方式进行指定 就需要将里面的信息作为对象传入-->
+<!--        <router-link tag="button" :to="{path:'login', query:{name:'wangwu', age:18}}">登录组件2</router-link>-->
+        <!--前面加冒号可以指定名称进行反向解析-->
+        <router-link tag="button" :to="{name: 'myregister'}">注册组件</router-link>
+    </div>
+
+    <div>
+        <router-view></router-view>
+    </div>
+</div>
+<template id="login">
+    <div>
+        <h1>登录组件:</h1>
+        <input type="text" placeholder="请输入用户名">
+    </div>
+</template>
+<template id="register">
+    <div>
+        <h1>注册组件:</h1>
+        <input type="text" placeholder="请输入用户名">
+    </div>
+</template>
+
+</body>
+</html>
+<script>
+    const router = new VueRouter({
+        // 默认为hash， 可以设置为history模式，但是如果是history的话是不能刷新的， 不推荐使用
+        mode: 'hash',
+        routes:[
+            {
+                path: '/',
+                redirect: '/login'
+            },
+            {
+                // 如果使用冒号后面跟参数,需要将query改为params
+                path: '/login/:name/:age',
+                component:{
+                    template:'#login',
+                    created:function () {
+                        // 1.第一种方式
+                        // 可以使用这个方式直接获取到路由中的值
+                        // console.log(this.$route.query.name)
+                        // console.log(this.$route.query.age)
+                        // 2. 第二种方式
+                        // console.log(this.$route.query.name)
+                        // console.log(this.$route.query.age)
+                        // 第三种方式
+                        console.log(this.$route.params.name)
+                    }
+                },
+
+            },
+            {
+                // 指定名称进行反向解析
+                name: 'myregister',
+                path: '/register',
+                component:{
+                    template: '#register'
+                }
+            }
+        ],
+        linkActiveClass: 'btn btn-primary'
+    })
+
+    const vm = new Vue({
+        el: '#app',
+        data:{},
+        methods:{},
+        components:{
+            login:{
+                template: '#login',
+            },
+            register:{
+                template: '#register'
+            }
+        },
+        router: router
+    })
+
+</script>

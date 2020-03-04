@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由的meta函数</title>
+    <script src="static/vue.js"></script>
+    <script src="static/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <router-link to="login">登录组件</router-link>
+        <router-link to="register">注册组件</router-link>
+        <router-link to="userinfo">用户信息</router-link>
+        <div>
+            <router-view></router-view>
+        </div>
+    </div>
+    <template id="login">
+        <div>
+            <h1>登录组件:</h1>
+            <input type="text" placeholder="请输入用户名">
+            <br />
+            <input type="password" placeholder="请输入密码">
+        </div>
+    </template>
+    <template id="register">
+        <div>
+            <h1>注册组件:</h1>
+            <input type="text" placeholder="请输入用户名">
+            <br />
+            <input type="password" placeholder="请输入密码">
+        </div>
+    </template>
+    <template id="userinfo">
+        <div>
+            <h1>用户信息:</h1>
+            <p>姓名: {{name}}</p>
+            <p>年龄: {{age}}</p>
+            <p>性别: {{sex}}</p>
+        </div>
+    </template>
+</body>
+</html>
+<script>
+    const router = new VueRouter({
+        routes:[
+            {
+                path: '/',
+                redirect: '/login'
+            },
+            {
+                path: '/login',
+                component:{
+                    template:'#login'
+                },
+                meta:{
+                    title: '登录中心',
+                    auto: false
+                }
+            },
+            {
+                path: '/register',
+                component:{
+                    template:'#register'
+                },
+                meta:{
+                    title: '注册中心',
+                    auto: false
+                }
+            },
+            {
+                path: '/userinfo',
+                component:{
+                    template: '#userinfo',
+                    data: function () {
+                        return {
+                            name: 'liujin',
+                            age: '18',
+                            sex: '男'
+                        }
+                    },
+                },
+                meta: {
+                    title: '用户中心',
+                    auto: true
+                }
+            }
+        ]
+    })
+
+    router.beforeEach((to, form, next)=>{
+        window.document.title = to.meta.title
+
+        if(to.matched.some(function(item){
+            return item.meta.auto
+        })){
+           alert('请先登录!!!');
+           next({path:'/login'})
+        }else{
+           next()
+        }
+        })
+
+        const vm = new Vue({
+        el: '#app',
+        data: {},
+        methods:{},
+        router: router
+    })
+
+</script>

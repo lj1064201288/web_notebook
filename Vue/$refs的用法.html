@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>$refs的用法</title>
+    <script src="static/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!--如果需要使用$refs 则需要申明ref属性的值-->
+        <div id="message" ref="xiaoxi">
+            {{message}}
+            <input type="button" value="获取父组件的信息" @click="getMessage">
+
+        </div>
+        <login ref="xiaoxi2"></login>
+        <input type="button" value="获取子组件的信息" @click="getMsg">
+
+
+
+
+    </div>
+    <template id="login">
+        <div id="msg" ref="msg">
+            {{msg}}
+        </div>
+    </template>
+</body>
+</html>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            message: '这是父组件的信息',
+        },
+        methods:{
+            getMessage:function () {
+                // 正常的DOM写法, 但是在vue里面是不推荐使用DOM操作的
+                // console.log(document.getElementById('message').innerText)
+                // 使用$refs获取父组件的文本信息
+                console.log(this.$refs.xiaoxi.innerText)
+            },
+            getMsg: function () {
+                console.log(this.$refs.xiaoxi2.$refs.msg.innerText)
+            }
+
+        },
+        components:{
+            login: {
+                template: '#login',
+                data: function () {
+                    return {
+                        msg: '这是子组件的信息'
+                    }
+                },
+                methods: {
+
+                }
+            }
+        }
+    })
+
+</script>

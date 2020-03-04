@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>局部组件的使用</title>
+    <script src="static/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="切换" @click="toggle">
+        <complate1 v-if="flag"></complate1>
+        <complate2 v-else></complate2>
+    </div>
+    <template id="login">
+        <h1>登录组件</h1>
+    </template>
+    <template id="register">
+        <h1>注册组件</h1>
+    </template>
+</body>
+</html>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data:{
+            flag: true
+        },
+        methods:{
+            toggle(){
+                this.flag = !this.flag
+            }
+        },
+        // 局部组件只需要添加组件函数，然后内部使用template选择组件的节点
+        components:{
+            'complate1': {
+                template: '#login'
+            },
+            'complate2':{
+                template: '#register'
+            }
+        }
+    })
+</script>

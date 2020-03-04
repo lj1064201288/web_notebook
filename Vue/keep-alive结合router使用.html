@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>router的基本使用</title>
+    <script src="static/vue.js"></script>
+    <script src="static/vue-router.js"></script>
+    <link rel="stylesheet" href="../bootstrap_notebook/css/bootstrap.min.css">
+    <style>
+        .v-enter, .v-leave-to{
+            transform: translateX(30px);
+            opacity: 0;
+        }
+
+        .v-enter-active, .v-leave-active{
+            transition: all 0.2s ease;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <div>
+        <!--在router中，链接标签不是a标签，而是使用router-link-->
+        <router-link tag="button" to="/login">登录组件</router-link>
+        <router-link tag="button" to="/register">注册组件</router-link>
+    </div>
+    <!--添加动画效果-->
+
+        <!--视图渲染使用router-view-->
+        <!--状态保存可以直接这样使用-->
+<!--        <keep-alive>-->
+<!--            <router-view></router-view>-->
+<!--        </keep-alive>-->
+        <!--加上判定条件指定哪一个组件进行状态保存-->
+    <keep-alive>
+        <router-view v-if="$route.meta.flag"></router-view>
+    </keep-alive>
+    <router-view v-if="!$route.meta.flag"></router-view>
+
+
+</div>
+<template id="login">
+    <div>
+        <h1>登录组件:</h1>
+        <input type="text" placeholder="请输入用户名">
+    </div>
+</template>
+<template id="register">
+    <div>
+        <h1>注册组件:</h1>
+        <input type="text" placeholder="请输入用户名">
+    </div>
+</template>
+</body>
+</html>
+<script>
+    // 1.首先创建路由的实例
+    const router = new VueRouter({
+        routes: [
+            {
+                path: '/',
+                // 当访问主页面的时候默认重定向login
+                redirect: '/login',
+                meta:{
+                    flag: true,
+                }
+            },
+            {
+                path:'/login',
+                component:{
+                    template: '#login'
+                },
+                meta:{
+                    flag: true,
+                }
+            },
+            {
+                path:"/register",
+                component:{
+                    template: '#register'
+                },
+                meta:{
+                    flag: false,
+                }
+
+            }
+        ],
+        linkActiveClass: 'btn btn-primary'
+    })
+
+    const vm = new Vue({
+        el: '#app',
+        data:{},
+        methods:{},
+        // 2.然后在vue实例中添加router的属性
+        router: router
+    })
+
+</script>

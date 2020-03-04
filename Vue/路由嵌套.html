@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路由嵌套</title>
+    <script src="static/vue.js"></script>
+    <script src="static/vue-router.js"></script>
+</head>
+<body>
+    <div id="container">
+        <router-link to="/user">我的信息</router-link>
+        <router-view></router-view>
+    </div>
+    <template id="user">
+        <div>
+            <!--需要加上前缀路由-->
+            <router-link to="/user/userinfo">用户信息</router-link>
+            <router-link to="/user/order">订单</router-link>
+
+            <router-view></router-view>
+        </div>
+    </template>
+    <template id="userinfo">
+        <div>
+            <h1>用户信息:</h1>
+            <p>姓名: {{name}}</p>
+            <p>年龄: {{age}}</p>
+            <p>性别: {{sex}}</p>
+        </div>
+    </template>
+    <template id="order">
+        <div>
+            订单信息
+        </div>
+    </template>
+</body>
+</html>
+<script>
+    var user = {
+        template: '#user'
+    }
+
+    var userinfo = {
+        template: '#userinfo',
+        data:function () {
+            return {
+                name: 'liujin',
+                age: '18',
+                sex: '男'
+            }
+        }
+    }
+
+    var order = {
+        template: '#order'
+    }
+    const router = new VueRouter({
+        routes:[
+            {
+                path: '/',
+                redirect: '/user'
+            },
+            {
+                path: '/user',
+                component: user,
+                children:[
+                    {
+                        path: 'userinfo',
+                        component: userinfo
+                    },
+                    {
+                        path: 'order',
+                        component: order
+                    }
+                ]
+            }
+        ]
+    })
+    const vm = new Vue({
+        el: '#container',
+        data:{},
+        methods:{},
+        router: router
+    })
+</script>
